@@ -30,17 +30,17 @@ export function GPageHeader({ eyebrow, title, description, actions }: {
 }) {
   return (
     <motion.div
-      className="mb-8"
+      className="mb-2"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, ease: easeOut }}
     >
-      {eyebrow && <div className="g-label-xs mb-2">{eyebrow}</div>}
+      {eyebrow && <div className="g-label-xs mb-1">{eyebrow}</div>}
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h1 className="text-[30px] leading-[1.15]">{title}</h1>
+          <h1 className="text-[20px] leading-[1.15] font-bold">{title}</h1>
           {description && (
-            <p className="text-[13.5px] mt-2 max-w-2xl leading-relaxed" style={{ color: "var(--g-muted-foreground)" }}>
+            <p className="text-[11.5px] mt-1 max-w-2xl leading-relaxed" style={{ color: "var(--g-muted-foreground)" }}>
               {description}
             </p>
           )}

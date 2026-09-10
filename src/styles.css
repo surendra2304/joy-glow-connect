@@ -18,6 +18,8 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
+  --color-sidebar: var(--sidebar);
+  --color-workspace-wash: var(--workspace-wash);
 
   --color-emerald-700: #0b6e54;
   --color-emerald-600: #0e7a5f;
@@ -63,13 +65,15 @@
     --muted: #f4f5f6;
     --muted-foreground: #64748b;
     --border: #e5e7eb;
+    --sidebar: #ffffff;
+    --workspace-wash: #efedff;
   }
   html, body, #root {
     height: 100%;
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
   }
-  body { @apply bg-[#FAFAFA] text-[#09090B] font-sans antialiased; font-size: 15px; margin: 0; cursor: default; }
+  body { @apply bg-background text-foreground font-sans antialiased; font-size: 15px; margin: 0; cursor: default; }
   h1, h2, h3, h4 { @apply font-display; letter-spacing: -0.02em; cursor: default; }
   p, span, div { cursor: default; }
   p, span, div { user-select: none; }
@@ -87,6 +91,30 @@
     height: 0 !important;
     background: transparent !important;
   }
+}
+
+@utility app-workspace-canvas {
+  background:
+    linear-gradient(
+      to bottom,
+      var(--background) 0,
+      var(--background) min(46rem, 62vh),
+      color-mix(in oklab, var(--workspace-wash) 82%, var(--background)) 100%
+    );
+}
+
+@utility marketplace-hero {
+  background:
+    radial-gradient(circle at 82% 22%, color-mix(in oklab, var(--workspace-wash) 28%, transparent), transparent 30%),
+    linear-gradient(118deg, oklch(0.15 0.02 165), oklch(0.16 0.025 285) 58%, oklch(0.21 0.055 305));
+}
+
+@utility marketplace-hero-grid {
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--background) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--background) 7%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(to left, black, transparent 72%);
 }
 
 @layer components {
