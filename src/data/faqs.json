@@ -1,0 +1,26 @@
+[
+  {
+    "q": "How long does setup actually take?",
+    "a": "Paste your website URL, upload any PDFs or docs, and the crawler builds your knowledge base. Most teams have a live agent on their site in under five minutes."
+  },
+  {
+    "q": "Will it make things up?",
+    "a": "No. Answers are generated only from your indexed content. When a question falls outside that scope the agent says so and hands off to a human with the full transcript attached."
+  },
+  {
+    "q": "Can it answer my phone number?",
+    "a": "Yes — connect the number you already advertise. Calls are answered, transcribed, scored, and pushed to your CRM or inbox exactly like a chat lead."
+  },
+  {
+    "q": "What does a 'qualified lead' mean here?",
+    "a": "You define the qualifying questions. Every conversation is scored 0–100 on intent, budget, and timeline, and only leads over your threshold get routed to the team."
+  },
+  {
+    "q": "Where does my data live?",
+    "a": "Each workspace is isolated with row-level security. Your documents are never used to train shared models, and you can purge the knowledge base at any time."
+  },
+  {
+    "q": "Can I change plans later?",
+    "a": "Plans are month-to-month. Move between Starter and Growth whenever you like — usage is prorated and nothing is locked in."
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "num_01",
+    "phoneNumber": "+1 (800) 555-0199",
+    "friendlyName": "Enterprise Customer Hotline",
+    "country": "US",
+    "type": "Toll-Free",
+    "status": "active",
+    "assignedAgent": "Vani",
+    "assignedAgentRole": "Voice Representative",
+    "capabilities": ["Voice", "SMS"],
+    "monthlyCost": "$2.00/mo",
+    "totalCalls": 412,
+    "minutesUsed": 620
+  },
+  {
+    "id": "num_02",
+    "phoneNumber": "+1 (415) 890-4100",
+    "friendlyName": "San Francisco Direct Booking",
+    "country": "US",
+    "type": "Local (415)",
+    "status": "active",
+    "assignedAgent": "Vani",
+    "assignedAgentRole": "Voice Representative",
+    "capabilities": ["Voice"],
+    "monthlyCost": "$1.15/mo",
+    "totalCalls": 184,
+    "minutesUsed": 290
+  },
+  {
+    "id": "num_03",
+    "phoneNumber": "+1 (212) 555-7820",
+    "friendlyName": "New York VIP Inquiries",
+    "country": "US",
+    "type": "Local (212)",
+    "status": "active",
+    "assignedAgent": "Vani",
+    "assignedAgentRole": "Voice Representative",
+    "capabilities": ["Voice", "SMS"],
+    "monthlyCost": "$1.15/mo",
+    "totalCalls": 88,
+    "minutesUsed": 140
+  },
+  {
+    "id": "num_04",
+    "phoneNumber": "+44 20 7946 0912",
+    "friendlyName": "London Regional Office",
+    "country": "UK",
+    "type": "International (+44)",
+    "status": "active",
+    "assignedAgent": "Vani",
+    "assignedAgentRole": "Voice Representative",
+    "capabilities": ["Voice"],
+    "monthlyCost": "$2.50/mo",
+    "totalCalls": 62,
+    "minutesUsed": 110
+  }
+]

@@ -1,0 +1,7 @@
+[
+  { "id": "TIC-8902", "status": "open", "priority": "high", "subject": "Enterprise SSO Configuration", "user": "Sarah Jenkins", "agent": "Vedant", "time": "10m ago" },
+  { "id": "TIC-8901", "status": "resolved", "priority": "medium", "subject": "Refund request for last month", "user": "David Smith", "agent": "Aarya", "time": "2h ago" },
+  { "id": "TIC-8900", "status": "open", "priority": "low", "subject": "How to export analytics?", "user": "Emily Chen", "agent": "Vedant", "time": "4h ago" },
+  { "id": "TIC-8899", "status": "resolved", "priority": "high", "subject": "API Rate limit exceeded", "user": "Tech Corp", "agent": "Anvay", "time": "1d ago" },
+  { "id": "TIC-8898", "status": "open", "priority": "medium", "subject": "Custom branding for widget", "user": "Fold Studio", "agent": "Medha", "time": "1d ago" }
+]

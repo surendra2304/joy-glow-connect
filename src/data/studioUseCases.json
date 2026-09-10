@@ -1,0 +1,102 @@
+[
+  {
+    "id": "lead-capture",
+    "agentId": "63c08dea-a8af-4b76-89e0-d7c1f4243a11",
+    "title": "Lead Capture & CRM Sync",
+    "prompt": "Create an AI employee who identifies potential customers, collects their contact details, and creates qualified leads in Salesforce and HubSpot CRM.",
+    "agentName": "Medha · Lead Capture Specialist",
+    "role": "Inbound Sales & CRM Qualification",
+    "channel": "chat",
+    "model": "gemini-1.5-pro",
+    "connectors": [
+      { "name": "Salesforce CRM", "type": "CRM", "status": "Connected" },
+      { "name": "HubSpot", "type": "Marketing & CRM", "status": "Connected" },
+      { "name": "Google Calendar", "type": "Scheduling", "status": "Connected" },
+      { "name": "Gmail", "type": "Email Dispatch", "status": "Connected" }
+    ],
+    "schema": ["Full Name", "Work Email", "Phone Number", "Company Name", "Estimated Budget", "Go-Live Timeline"],
+    "actions": ["Create CRM Lead", "Score Intent & Budget", "Schedule Calendar Demo", "Send Follow-Up Summary Email"],
+    "knowledgeTopics": ["Pricing Tiers", "Enterprise SLAs", "Product Capabilities", "Security & Compliance"],
+    "description": "Identifies potential customers, extracts qualification requirements, and automatically syncs verified deals to your CRM with calendar booking."
+  },
+  {
+    "id": "customer-support",
+    "agentId": "1b4e2f90-7d33-4a11-88c9-598e3b1c8802",
+    "title": "Support & Auto-Ticketing",
+    "prompt": "Build an AI employee that detects customer technical issues, creates Zendesk support tickets with priority routing, and escalates critical problems.",
+    "agentName": "Vedant · Support Specialist",
+    "role": "Customer Support & Issue Escalation",
+    "channel": "chat",
+    "model": "gemini-1.5-pro",
+    "connectors": [
+      { "name": "Zendesk", "type": "Helpdesk", "status": "Connected" },
+      { "name": "Linear", "type": "Bug Tracking", "status": "Connected" },
+      { "name": "Slack Alerts", "type": "Notifications", "status": "Connected" },
+      { "name": "Knowledge Base", "type": "Grounding", "status": "Connected" }
+    ],
+    "schema": ["Customer Email", "Issue Category", "Severity (Low/Med/High/Critical)", "Reproduction Steps"],
+    "actions": ["Auto-Create Support Ticket", "Assign Priority Tier", "Trigger Slack On-Call Alert", "Human Agent Handoff"],
+    "knowledgeTopics": ["API Troubleshooting", "Billing & Invoices", "Authentication Guides", "Incident Runbooks"],
+    "description": "Answers customer questions using company docs, detects technical issues, creates structured tickets, and handles seamless human escalation."
+  },
+  {
+    "id": "voice-booking",
+    "agentId": "9c7d4e21-0a34-4b55-8911-3e5f2a1b9904",
+    "title": "Voice Demo & Appointment Booking",
+    "prompt": "Design an inbound voice AI employee that answers phone calls, qualifies prospects verbally, and books product demos on Google Calendar.",
+    "agentName": "Vani · Voice Representative",
+    "role": "Inbound Voice & Demo Specialist",
+    "channel": "voice",
+    "model": "gemini-1.5-flash",
+    "connectors": [
+      { "name": "Twilio Telephony", "type": "Voice Line", "status": "Connected" },
+      { "name": "Google Calendar", "type": "Scheduling", "status": "Connected" },
+      { "name": "Salesforce CRM", "type": "CRM", "status": "Connected" },
+      { "name": "SMS Gateway", "type": "Messaging", "status": "Connected" }
+    ],
+    "schema": ["Caller Name", "Phone Number", "Company Size", "Preferred Meeting Slot", "Timezone"],
+    "actions": ["Check Real-Time Slot", "Book Calendar Invite", "Dispatch SMS Confirmation", "Generate Call Audio Transcript"],
+    "knowledgeTopics": ["Voice Persona Guidelines", "Objection Handling", "Timezone Availability", "Product Overview"],
+    "description": "Conversational voice agent that fields phone inquiries, checks calendar availability, and books meetings with zero human intervention."
+  },
+  {
+    "id": "receiptnest",
+    "agentId": "63c08dea-a8af-4b76-89e0-d7c1f4243a11",
+    "title": "ReceiptNest Organization Scheduler",
+    "prompt": "Build a ReceiptNest employee that collects patient details, identifies the correct organization, checks availability, and books appointments.",
+    "agentName": "ReceiptNest · Organization Scheduler",
+    "role": "Organization Schedule & Booking",
+    "channel": "voice",
+    "model": "gemini-1.5-pro",
+    "connectors": [
+      { "name": "ReceiptNest API", "type": "Core Database", "status": "Connected" },
+      { "name": "Google Calendar", "type": "Doctor Schedules", "status": "Connected" },
+      { "name": "Twilio Telephony", "type": "Voice & SMS", "status": "Connected" },
+      { "name": "Gmail", "type": "Patient Confirmations", "status": "Connected" }
+    ],
+    "schema": ["Patient Name", "Organization ID", "Appointment Type", "Insurance / Reference", "Preferred Date/Time"],
+    "actions": ["Match Organization Registry", "Check Practitioner Slots", "Book Appointment Entry", "Send Calendar & SMS Invite"],
+    "knowledgeTopics": ["Organization Directory", "Doctor Schedules", "Patient Intake Guidelines", "Cancellation Rules"],
+    "description": "Collects patient details, routes to the matching organization, checks live schedules, and confirms booking in real-time."
+  },
+  {
+    "id": "customer-retention",
+    "agentId": "4f8c1e33-9b22-4d55-8811-1a2b3c4d5e05",
+    "title": "Customer Retention & Sentiment",
+    "prompt": "Create an AI employee that analyzes customer sentiment, handles cancellation and refund workflows, and alerts account managers on Slack.",
+    "agentName": "Aarya · Customer Retention Agent",
+    "role": "Retention & Sentiment Specialist",
+    "channel": "chat",
+    "model": "gemini-1.5-pro",
+    "connectors": [
+      { "name": "Stripe", "type": "Billing & Subscriptions", "status": "Connected" },
+      { "name": "Zendesk", "type": "Tickets", "status": "Connected" },
+      { "name": "Slack", "type": "Alerts", "status": "Connected" },
+      { "name": "HubSpot", "type": "Customer Success", "status": "Connected" }
+    ],
+    "schema": ["Customer ID", "Sentiment Score", "Cancellation Reason", "ARR Value at Risk"],
+    "actions": ["Detect At-Risk Sentiment", "Offer Retention Tier", "Validate Refund Policy", "Alert Account Executive"],
+    "knowledgeTopics": ["Refund & SLA Terms", "Discount Guidelines", "Downgrade Workflows", "Customer Success Playbook"],
+    "description": "Monitors sentiment during conversations, detects cancellation intent, offers retention solutions, and escalates VIP accounts."
+  }
+]
