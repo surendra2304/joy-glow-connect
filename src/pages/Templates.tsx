@@ -1,3 +1,4 @@
+import { CubeIcon } from "@/components/CubeIcon";
 import { useState, useMemo } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import {
@@ -22,7 +23,7 @@ import {
 } from "../components/ui/dialog";
 import { AgentAvatar } from "../components/ui/agent-avatar";
 import {
-  ArrowRight,
+
   Search,
   Sparkles,
   X,
@@ -277,7 +278,7 @@ export default function Templates() {
 
               {/* Key Capabilities */}
               <div className="flex flex-wrap gap-2 pt-1">
-                <Button onClick={() => document.getElementById("marketplace-grid")?.scrollIntoView({ behavior: "smooth" })} className="rounded-full border border-background/45 bg-background/10 text-background hover:bg-background/20">Browse AI Employees <ArrowRight className="h-3.5 w-3.5" /></Button>
+                <Button onClick={() => document.getElementById("marketplace-grid")?.scrollIntoView({ behavior: "smooth" })} className="rounded-full border border-background/45 bg-background/10 text-background hover:bg-background/20">Browse AI Employees <CubeIcon className="h-3.5 w-3.5" /></Button>
                 <Button onClick={() => navigate({ to: "/app/studio" })} className="rounded-full border border-background/45 bg-background/10 text-background hover:bg-background/20"><Play className="h-3.5 w-3.5" /> How it works</Button>
               </div>
             </div>
@@ -545,7 +546,7 @@ export default function Templates() {
                       className="rounded-full px-3 py-1 text-[12px] font-bold text-white bg-[#09090B] hover:bg-black cursor-pointer h-7 gap-1"
                     >
                       <span>Get Agent</span>
-                      <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
+                      <CubeIcon className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
                     </Button>
                   </div>
                 </div>

@@ -1,3 +1,4 @@
+import { CubeIcon } from "@/components/CubeIcon";
 import { useState, useMemo, useRef, useEffect } from "react";
 import { useParams, useNavigate, Link, useSearch } from "@tanstack/react-router";
 import {
@@ -11,7 +12,7 @@ import { AgentSimulatorSandbox } from "../components/AgentSimulatorSandbox";
 import { api } from "../lib/api";
 import {
   ArrowLeft,
-  ArrowRight,
+
   Sparkles,
   CheckCircle2,
   ShieldCheck,
@@ -192,7 +193,7 @@ export default function TemplateFlow() {
             ) : (
               <>
                 <span>Use Template</span>
-                <ArrowRight className="w-4 h-4" />
+                <CubeIcon className="w-4 h-4" />
               </>
             )}
           </button>
@@ -438,7 +439,7 @@ export default function TemplateFlow() {
           }`}
         >
           <span>Use This Template</span>
-          <ArrowRight className="w-4 h-4" />
+          <CubeIcon className="w-4 h-4" />
         </button>
       </div>
     </div>
