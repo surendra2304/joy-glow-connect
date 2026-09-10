@@ -201,9 +201,9 @@ export default function Templates() {
         </div>
 
         {/* Header Action Buttons & Search */}
-        <div className="flex items-center gap-2.5 flex-wrap">
+        <div className="flex items-center gap-2.5 flex-wrap lg:flex-nowrap">
           {/* Search Input */}
-          <div className="relative min-w-[220px] sm:w-68">
+          <div className="relative min-w-[200px] sm:w-60">
             <Input
               type="text"
               placeholder="Search agents, skills, tools..."
