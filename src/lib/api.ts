@@ -74,7 +74,7 @@ async function request(path: string, options: RequestOptions = {}) {
         localStorage.removeItem('authUser');
         localStorage.removeItem('authWorkspace');
         if (window.location.pathname.startsWith('/app')) {
-          window.location.href = '/login';
+          window.location.href = '/app';
         }
       }
       throw new Error('Session expired');
