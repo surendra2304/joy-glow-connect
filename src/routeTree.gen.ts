@@ -10,42 +10,399 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppRouteImport } from './routes/app'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as AppIndexRouteImport } from './routes/app/index'
+import { Route as AppActionsRouteImport } from './routes/app/actions'
+import { Route as AppAnalyticsRouteImport } from './routes/app/analytics'
+import { Route as AppCallsRouteImport } from './routes/app/calls'
+import { Route as AppConnectorsRouteImport } from './routes/app/connectors'
+import { Route as AppDocsRouteImport } from './routes/app/docs'
+import { Route as AppIntegrationsRouteImport } from './routes/app/integrations'
+import { Route as AppKnowledgeRouteImport } from './routes/app/knowledge'
+import { Route as AppLeadsRouteImport } from './routes/app/leads'
+import { Route as AppNumbersRouteImport } from './routes/app/numbers'
+import { Route as AppOnboardingRouteImport } from './routes/app/onboarding'
+import { Route as AppSettingsRouteImport } from './routes/app/settings'
+import { Route as AppStudioRouteImport } from './routes/app/studio'
+import { Route as AppTicketsRouteImport } from './routes/app/tickets'
 import { Route as ApiV1SplatRouteImport } from './routes/api/v1/$'
+import { Route as AppAgentsIndexRouteImport } from './routes/app/agents/index'
+import { Route as AppAgentsIdRouteImport } from './routes/app/agents/$id'
+import { Route as AppAgentsNewRouteImport } from './routes/app/agents/new'
+import { Route as AppChatAgentIndexRouteImport } from './routes/app/chat-agent/index'
+import { Route as AppChatAgentIdRouteImport } from './routes/app/chat-agent/$id'
+import { Route as AppConversationsIndexRouteImport } from './routes/app/conversations/index'
+import { Route as AppConversationsIdRouteImport } from './routes/app/conversations/$id'
+import { Route as AppTemplatesIndexRouteImport } from './routes/app/templates/index'
+import { Route as AppTemplatesTemplateIdRouteImport } from './routes/app/templates/$templateId'
+import { Route as AppVoiceIndexRouteImport } from './routes/app/voice/index'
+import { Route as AppVoiceIdRouteImport } from './routes/app/voice/$id'
+import { Route as AppTemplatesTemplateIdEditRouteImport } from './routes/app/templates/$templateId/edit'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppActionsRoute = AppActionsRouteImport.update({
+  id: '/actions',
+  path: '/actions',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAnalyticsRoute = AppAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCallsRoute = AppCallsRouteImport.update({
+  id: '/calls',
+  path: '/calls',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppConnectorsRoute = AppConnectorsRouteImport.update({
+  id: '/connectors',
+  path: '/connectors',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDocsRoute = AppDocsRouteImport.update({
+  id: '/docs',
+  path: '/docs',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppIntegrationsRoute = AppIntegrationsRouteImport.update({
+  id: '/integrations',
+  path: '/integrations',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppKnowledgeRoute = AppKnowledgeRouteImport.update({
+  id: '/knowledge',
+  path: '/knowledge',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppLeadsRoute = AppLeadsRouteImport.update({
+  id: '/leads',
+  path: '/leads',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppNumbersRoute = AppNumbersRouteImport.update({
+  id: '/numbers',
+  path: '/numbers',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppOnboardingRoute = AppOnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppStudioRoute = AppStudioRouteImport.update({
+  id: '/studio',
+  path: '/studio',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTicketsRoute = AppTicketsRouteImport.update({
+  id: '/tickets',
+  path: '/tickets',
+  getParentRoute: () => AppRoute,
+} as any)
 const ApiV1SplatRoute = ApiV1SplatRouteImport.update({
   id: '/api/v1/$',
   path: '/api/v1/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppAgentsIndexRoute = AppAgentsIndexRouteImport.update({
+  id: '/agents/',
+  path: '/agents/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAgentsIdRoute = AppAgentsIdRouteImport.update({
+  id: '/agents/$id',
+  path: '/agents/$id',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAgentsNewRoute = AppAgentsNewRouteImport.update({
+  id: '/agents/new',
+  path: '/agents/new',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppChatAgentIndexRoute = AppChatAgentIndexRouteImport.update({
+  id: '/chat-agent/',
+  path: '/chat-agent/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppChatAgentIdRoute = AppChatAgentIdRouteImport.update({
+  id: '/chat-agent/$id',
+  path: '/chat-agent/$id',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppConversationsIndexRoute = AppConversationsIndexRouteImport.update({
+  id: '/conversations/',
+  path: '/conversations/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppConversationsIdRoute = AppConversationsIdRouteImport.update({
+  id: '/conversations/$id',
+  path: '/conversations/$id',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTemplatesIndexRoute = AppTemplatesIndexRouteImport.update({
+  id: '/templates/',
+  path: '/templates/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTemplatesTemplateIdRoute = AppTemplatesTemplateIdRouteImport.update({
+  id: '/templates/$templateId',
+  path: '/templates/$templateId',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppVoiceIndexRoute = AppVoiceIndexRouteImport.update({
+  id: '/voice/',
+  path: '/voice/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppVoiceIdRoute = AppVoiceIdRouteImport.update({
+  id: '/voice/$id',
+  path: '/voice/$id',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTemplatesTemplateIdEditRoute =
+  AppTemplatesTemplateIdEditRouteImport.update({
+    id: '/edit',
+    path: '/edit',
+    getParentRoute: () => AppTemplatesTemplateIdRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/app/actions': typeof AppActionsRoute
+  '/app/analytics': typeof AppAnalyticsRoute
+  '/app/calls': typeof AppCallsRoute
+  '/app/connectors': typeof AppConnectorsRoute
+  '/app/docs': typeof AppDocsRoute
+  '/app/integrations': typeof AppIntegrationsRoute
+  '/app/knowledge': typeof AppKnowledgeRoute
+  '/app/leads': typeof AppLeadsRoute
+  '/app/numbers': typeof AppNumbersRoute
+  '/app/onboarding': typeof AppOnboardingRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/studio': typeof AppStudioRoute
+  '/app/tickets': typeof AppTicketsRoute
+  '/app/': typeof AppIndexRoute
   '/api/v1/$': typeof ApiV1SplatRoute
+  '/app/agents/$id': typeof AppAgentsIdRoute
+  '/app/agents/new': typeof AppAgentsNewRoute
+  '/app/chat-agent/$id': typeof AppChatAgentIdRoute
+  '/app/conversations/$id': typeof AppConversationsIdRoute
+  '/app/templates/$templateId': typeof AppTemplatesTemplateIdRouteWithChildren
+  '/app/voice/$id': typeof AppVoiceIdRoute
+  '/app/agents/': typeof AppAgentsIndexRoute
+  '/app/chat-agent/': typeof AppChatAgentIndexRoute
+  '/app/conversations/': typeof AppConversationsIndexRoute
+  '/app/templates/': typeof AppTemplatesIndexRoute
+  '/app/voice/': typeof AppVoiceIndexRoute
+  '/app/templates/$templateId/edit': typeof AppTemplatesTemplateIdEditRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/app/actions': typeof AppActionsRoute
+  '/app/analytics': typeof AppAnalyticsRoute
+  '/app/calls': typeof AppCallsRoute
+  '/app/connectors': typeof AppConnectorsRoute
+  '/app/docs': typeof AppDocsRoute
+  '/app/integrations': typeof AppIntegrationsRoute
+  '/app/knowledge': typeof AppKnowledgeRoute
+  '/app/leads': typeof AppLeadsRoute
+  '/app/numbers': typeof AppNumbersRoute
+  '/app/onboarding': typeof AppOnboardingRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/studio': typeof AppStudioRoute
+  '/app/tickets': typeof AppTicketsRoute
+  '/app': typeof AppIndexRoute
   '/api/v1/$': typeof ApiV1SplatRoute
+  '/app/agents/$id': typeof AppAgentsIdRoute
+  '/app/agents/new': typeof AppAgentsNewRoute
+  '/app/chat-agent/$id': typeof AppChatAgentIdRoute
+  '/app/conversations/$id': typeof AppConversationsIdRoute
+  '/app/templates/$templateId': typeof AppTemplatesTemplateIdRouteWithChildren
+  '/app/voice/$id': typeof AppVoiceIdRoute
+  '/app/agents': typeof AppAgentsIndexRoute
+  '/app/chat-agent': typeof AppChatAgentIndexRoute
+  '/app/conversations': typeof AppConversationsIndexRoute
+  '/app/templates': typeof AppTemplatesIndexRoute
+  '/app/voice': typeof AppVoiceIndexRoute
+  '/app/templates/$templateId/edit': typeof AppTemplatesTemplateIdEditRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/app/actions': typeof AppActionsRoute
+  '/app/analytics': typeof AppAnalyticsRoute
+  '/app/calls': typeof AppCallsRoute
+  '/app/connectors': typeof AppConnectorsRoute
+  '/app/docs': typeof AppDocsRoute
+  '/app/integrations': typeof AppIntegrationsRoute
+  '/app/knowledge': typeof AppKnowledgeRoute
+  '/app/leads': typeof AppLeadsRoute
+  '/app/numbers': typeof AppNumbersRoute
+  '/app/onboarding': typeof AppOnboardingRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/studio': typeof AppStudioRoute
+  '/app/tickets': typeof AppTicketsRoute
+  '/app/': typeof AppIndexRoute
   '/api/v1/$': typeof ApiV1SplatRoute
+  '/app/agents/$id': typeof AppAgentsIdRoute
+  '/app/agents/new': typeof AppAgentsNewRoute
+  '/app/chat-agent/$id': typeof AppChatAgentIdRoute
+  '/app/conversations/$id': typeof AppConversationsIdRoute
+  '/app/templates/$templateId': typeof AppTemplatesTemplateIdRouteWithChildren
+  '/app/voice/$id': typeof AppVoiceIdRoute
+  '/app/agents/': typeof AppAgentsIndexRoute
+  '/app/chat-agent/': typeof AppChatAgentIndexRoute
+  '/app/conversations/': typeof AppConversationsIndexRoute
+  '/app/templates/': typeof AppTemplatesIndexRoute
+  '/app/voice/': typeof AppVoiceIndexRoute
+  '/app/templates/$templateId/edit': typeof AppTemplatesTemplateIdEditRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/v1/$'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/login'
+    | '/signup'
+    | '/app/actions'
+    | '/app/analytics'
+    | '/app/calls'
+    | '/app/connectors'
+    | '/app/docs'
+    | '/app/integrations'
+    | '/app/knowledge'
+    | '/app/leads'
+    | '/app/numbers'
+    | '/app/onboarding'
+    | '/app/settings'
+    | '/app/studio'
+    | '/app/tickets'
+    | '/app/'
+    | '/api/v1/$'
+    | '/app/agents/$id'
+    | '/app/agents/new'
+    | '/app/chat-agent/$id'
+    | '/app/conversations/$id'
+    | '/app/templates/$templateId'
+    | '/app/voice/$id'
+    | '/app/agents/'
+    | '/app/chat-agent/'
+    | '/app/conversations/'
+    | '/app/templates/'
+    | '/app/voice/'
+    | '/app/templates/$templateId/edit'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/v1/$'
-  id: '__root__' | '/' | '/api/v1/$'
+  to:
+    | '/'
+    | '/login'
+    | '/signup'
+    | '/app/actions'
+    | '/app/analytics'
+    | '/app/calls'
+    | '/app/connectors'
+    | '/app/docs'
+    | '/app/integrations'
+    | '/app/knowledge'
+    | '/app/leads'
+    | '/app/numbers'
+    | '/app/onboarding'
+    | '/app/settings'
+    | '/app/studio'
+    | '/app/tickets'
+    | '/app'
+    | '/api/v1/$'
+    | '/app/agents/$id'
+    | '/app/agents/new'
+    | '/app/chat-agent/$id'
+    | '/app/conversations/$id'
+    | '/app/templates/$templateId'
+    | '/app/voice/$id'
+    | '/app/agents'
+    | '/app/chat-agent'
+    | '/app/conversations'
+    | '/app/templates'
+    | '/app/voice'
+    | '/app/templates/$templateId/edit'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/login'
+    | '/signup'
+    | '/app/actions'
+    | '/app/analytics'
+    | '/app/calls'
+    | '/app/connectors'
+    | '/app/docs'
+    | '/app/integrations'
+    | '/app/knowledge'
+    | '/app/leads'
+    | '/app/numbers'
+    | '/app/onboarding'
+    | '/app/settings'
+    | '/app/studio'
+    | '/app/tickets'
+    | '/app/'
+    | '/api/v1/$'
+    | '/app/agents/$id'
+    | '/app/agents/new'
+    | '/app/chat-agent/$id'
+    | '/app/conversations/$id'
+    | '/app/templates/$templateId'
+    | '/app/voice/$id'
+    | '/app/agents/'
+    | '/app/chat-agent/'
+    | '/app/conversations/'
+    | '/app/templates/'
+    | '/app/voice/'
+    | '/app/templates/$templateId/edit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
+  LoginRoute: typeof LoginRoute
+  SignupRoute: typeof SignupRoute
   ApiV1SplatRoute: typeof ApiV1SplatRoute
 }
 
@@ -58,6 +415,125 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/': {
+      id: '/app/'
+      path: '/'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/actions': {
+      id: '/app/actions'
+      path: '/actions'
+      fullPath: '/app/actions'
+      preLoaderRoute: typeof AppActionsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/analytics': {
+      id: '/app/analytics'
+      path: '/analytics'
+      fullPath: '/app/analytics'
+      preLoaderRoute: typeof AppAnalyticsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/calls': {
+      id: '/app/calls'
+      path: '/calls'
+      fullPath: '/app/calls'
+      preLoaderRoute: typeof AppCallsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/connectors': {
+      id: '/app/connectors'
+      path: '/connectors'
+      fullPath: '/app/connectors'
+      preLoaderRoute: typeof AppConnectorsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/docs': {
+      id: '/app/docs'
+      path: '/docs'
+      fullPath: '/app/docs'
+      preLoaderRoute: typeof AppDocsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/integrations': {
+      id: '/app/integrations'
+      path: '/integrations'
+      fullPath: '/app/integrations'
+      preLoaderRoute: typeof AppIntegrationsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/knowledge': {
+      id: '/app/knowledge'
+      path: '/knowledge'
+      fullPath: '/app/knowledge'
+      preLoaderRoute: typeof AppKnowledgeRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/leads': {
+      id: '/app/leads'
+      path: '/leads'
+      fullPath: '/app/leads'
+      preLoaderRoute: typeof AppLeadsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/numbers': {
+      id: '/app/numbers'
+      path: '/numbers'
+      fullPath: '/app/numbers'
+      preLoaderRoute: typeof AppNumbersRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/onboarding': {
+      id: '/app/onboarding'
+      path: '/onboarding'
+      fullPath: '/app/onboarding'
+      preLoaderRoute: typeof AppOnboardingRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/settings': {
+      id: '/app/settings'
+      path: '/settings'
+      fullPath: '/app/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/studio': {
+      id: '/app/studio'
+      path: '/studio'
+      fullPath: '/app/studio'
+      preLoaderRoute: typeof AppStudioRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/tickets': {
+      id: '/app/tickets'
+      path: '/tickets'
+      fullPath: '/app/tickets'
+      preLoaderRoute: typeof AppTicketsRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/api/v1/$': {
       id: '/api/v1/$'
       path: '/api/v1/$'
@@ -65,11 +541,170 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiV1SplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app/agents/': {
+      id: '/app/agents/'
+      path: '/agents'
+      fullPath: '/app/agents/'
+      preLoaderRoute: typeof AppAgentsIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/agents/$id': {
+      id: '/app/agents/$id'
+      path: '/agents/$id'
+      fullPath: '/app/agents/$id'
+      preLoaderRoute: typeof AppAgentsIdRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/agents/new': {
+      id: '/app/agents/new'
+      path: '/agents/new'
+      fullPath: '/app/agents/new'
+      preLoaderRoute: typeof AppAgentsNewRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/chat-agent/': {
+      id: '/app/chat-agent/'
+      path: '/chat-agent'
+      fullPath: '/app/chat-agent/'
+      preLoaderRoute: typeof AppChatAgentIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/chat-agent/$id': {
+      id: '/app/chat-agent/$id'
+      path: '/chat-agent/$id'
+      fullPath: '/app/chat-agent/$id'
+      preLoaderRoute: typeof AppChatAgentIdRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/conversations/': {
+      id: '/app/conversations/'
+      path: '/conversations'
+      fullPath: '/app/conversations/'
+      preLoaderRoute: typeof AppConversationsIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/conversations/$id': {
+      id: '/app/conversations/$id'
+      path: '/conversations/$id'
+      fullPath: '/app/conversations/$id'
+      preLoaderRoute: typeof AppConversationsIdRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/templates/': {
+      id: '/app/templates/'
+      path: '/templates'
+      fullPath: '/app/templates/'
+      preLoaderRoute: typeof AppTemplatesIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/templates/$templateId': {
+      id: '/app/templates/$templateId'
+      path: '/templates/$templateId'
+      fullPath: '/app/templates/$templateId'
+      preLoaderRoute: typeof AppTemplatesTemplateIdRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/voice/': {
+      id: '/app/voice/'
+      path: '/voice'
+      fullPath: '/app/voice/'
+      preLoaderRoute: typeof AppVoiceIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/voice/$id': {
+      id: '/app/voice/$id'
+      path: '/voice/$id'
+      fullPath: '/app/voice/$id'
+      preLoaderRoute: typeof AppVoiceIdRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/templates/$templateId/edit': {
+      id: '/app/templates/$templateId/edit'
+      path: '/edit'
+      fullPath: '/app/templates/$templateId/edit'
+      preLoaderRoute: typeof AppTemplatesTemplateIdEditRouteImport
+      parentRoute: typeof AppTemplatesTemplateIdRoute
+    }
   }
 }
 
+interface AppTemplatesTemplateIdRouteChildren {
+  AppTemplatesTemplateIdEditRoute: typeof AppTemplatesTemplateIdEditRoute
+}
+
+const AppTemplatesTemplateIdRouteChildren: AppTemplatesTemplateIdRouteChildren =
+  {
+    AppTemplatesTemplateIdEditRoute: AppTemplatesTemplateIdEditRoute,
+  }
+
+const AppTemplatesTemplateIdRouteWithChildren =
+  AppTemplatesTemplateIdRoute._addFileChildren(
+    AppTemplatesTemplateIdRouteChildren,
+  )
+
+interface AppRouteChildren {
+  AppActionsRoute: typeof AppActionsRoute
+  AppAnalyticsRoute: typeof AppAnalyticsRoute
+  AppCallsRoute: typeof AppCallsRoute
+  AppConnectorsRoute: typeof AppConnectorsRoute
+  AppDocsRoute: typeof AppDocsRoute
+  AppIntegrationsRoute: typeof AppIntegrationsRoute
+  AppKnowledgeRoute: typeof AppKnowledgeRoute
+  AppLeadsRoute: typeof AppLeadsRoute
+  AppNumbersRoute: typeof AppNumbersRoute
+  AppOnboardingRoute: typeof AppOnboardingRoute
+  AppSettingsRoute: typeof AppSettingsRoute
+  AppStudioRoute: typeof AppStudioRoute
+  AppTicketsRoute: typeof AppTicketsRoute
+  AppIndexRoute: typeof AppIndexRoute
+  AppAgentsIdRoute: typeof AppAgentsIdRoute
+  AppAgentsNewRoute: typeof AppAgentsNewRoute
+  AppChatAgentIdRoute: typeof AppChatAgentIdRoute
+  AppConversationsIdRoute: typeof AppConversationsIdRoute
+  AppTemplatesTemplateIdRoute: typeof AppTemplatesTemplateIdRouteWithChildren
+  AppVoiceIdRoute: typeof AppVoiceIdRoute
+  AppAgentsIndexRoute: typeof AppAgentsIndexRoute
+  AppChatAgentIndexRoute: typeof AppChatAgentIndexRoute
+  AppConversationsIndexRoute: typeof AppConversationsIndexRoute
+  AppTemplatesIndexRoute: typeof AppTemplatesIndexRoute
+  AppVoiceIndexRoute: typeof AppVoiceIndexRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppActionsRoute: AppActionsRoute,
+  AppAnalyticsRoute: AppAnalyticsRoute,
+  AppCallsRoute: AppCallsRoute,
+  AppConnectorsRoute: AppConnectorsRoute,
+  AppDocsRoute: AppDocsRoute,
+  AppIntegrationsRoute: AppIntegrationsRoute,
+  AppKnowledgeRoute: AppKnowledgeRoute,
+  AppLeadsRoute: AppLeadsRoute,
+  AppNumbersRoute: AppNumbersRoute,
+  AppOnboardingRoute: AppOnboardingRoute,
+  AppSettingsRoute: AppSettingsRoute,
+  AppStudioRoute: AppStudioRoute,
+  AppTicketsRoute: AppTicketsRoute,
+  AppIndexRoute: AppIndexRoute,
+  AppAgentsIdRoute: AppAgentsIdRoute,
+  AppAgentsNewRoute: AppAgentsNewRoute,
+  AppChatAgentIdRoute: AppChatAgentIdRoute,
+  AppConversationsIdRoute: AppConversationsIdRoute,
+  AppTemplatesTemplateIdRoute: AppTemplatesTemplateIdRouteWithChildren,
+  AppVoiceIdRoute: AppVoiceIdRoute,
+  AppAgentsIndexRoute: AppAgentsIndexRoute,
+  AppChatAgentIndexRoute: AppChatAgentIndexRoute,
+  AppConversationsIndexRoute: AppConversationsIndexRoute,
+  AppTemplatesIndexRoute: AppTemplatesIndexRoute,
+  AppVoiceIndexRoute: AppVoiceIndexRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
+  LoginRoute: LoginRoute,
+  SignupRoute: SignupRoute,
   ApiV1SplatRoute: ApiV1SplatRoute,
 }
 export const routeTree = rootRouteImport
