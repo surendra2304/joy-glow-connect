@@ -311,7 +311,7 @@ export function Settings() {
                 {message.success ? "✓" : "⚠"} {message.text}
               </span>
             )}
-            <Link to="/docs" className="g-btn-2">
+            <Link to="/app/docs" className="g-btn-2">
               <I.Book width={13} height={13} /> Documentation
             </Link>
           </div>

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import AgentStudio from "../pages/AgentStudio";
+import AgentStudio from "@/pages/AgentStudio";
 
 export const Route = createFileRoute("/app/studio")({
   head: () => ({

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Templates from "../pages/Templates";
+import Templates from "@/pages/Templates";
 
 export const Route = createFileRoute("/app/templates/")({
   head: () => ({

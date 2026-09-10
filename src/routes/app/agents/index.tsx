@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Employees } from "../../pages/Employees";
+import { Employees } from "@/pages/Employees";
 
 export const Route = createFileRoute("/app/agents/")({
   head: () => ({

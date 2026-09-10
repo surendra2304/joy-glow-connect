@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Knowledge from "../pages/Knowledge";
+import Knowledge from "@/pages/Knowledge";
 
 export const Route = createFileRoute("/app/knowledge")({
   head: () => ({

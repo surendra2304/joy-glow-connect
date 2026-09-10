@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-// @ts-expect-error plain JS mock handler
 import handler from "@/lib/mock-api-handler.js";
 
 async function handle(request: Request): Promise<Response> {

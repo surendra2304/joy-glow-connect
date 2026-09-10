@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Connectors from "../pages/Connectors";
+import Connectors from "@/pages/Connectors";
 
 export const Route = createFileRoute("/app/integrations")({
   head: () => ({
