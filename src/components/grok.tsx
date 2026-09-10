@@ -473,16 +473,18 @@ export function Loading({
     </div>
   );
 
-  if (fullScreen && typeof document !== "undefined") {
-    return createPortal(
+  if (fullScreen) {
+    const overlay = (
       <div
         className="fixed inset-0 z-[99999] flex items-center justify-center bg-[#ffffff]/80 backdrop-blur-md"
         style={{ backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)" }}
       >
         {content}
-      </div>,
-      document.body
+      </div>
     );
+    // Render inline on the server and during hydration; portal only after mount
+    // so the server and client trees match.
+    return hydrated ? createPortal(overlay, document.body) : overlay;
   }
 
   return content;
