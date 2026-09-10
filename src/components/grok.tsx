@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { Check, Sparkle } from "./icons";
 import { createPortal } from "react-dom";
-import { Link } from "@tanstack/react-router";
+import { Link, useHydrated } from "@tanstack/react-router";
 import { motion, useSpring, useTransform } from "framer-motion";
 
 /* ============================================================
@@ -457,6 +457,7 @@ export function Loading({
   size?: "sm" | "md" | "lg";
   className?: string;
 }) {
+  const hydrated = useHydrated();
   const content = (
     <div className={`flex flex-col items-center justify-center text-center p-6 gap-3 fadeup ${className}`}>
       <div className="relative">
