@@ -1,4 +1,5 @@
 import type { SVGProps } from "react";
+import cubeAsset from "../assets/figma/cube-dark.png.asset.json";
 
 const base = (p: SVGProps<SVGSVGElement>) => ({
   width: 18, height: 18, viewBox: "0 0 24 24", fill: "none",
@@ -31,7 +32,9 @@ export const Search = (p: SVGProps<SVGSVGElement>) => (<svg {...base(p)}><circle
 export const Bell = (p: SVGProps<SVGSVGElement>) => (<svg {...base(p)}><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>);
 export const Chevron = (p: SVGProps<SVGSVGElement>) => (<svg {...base(p)} width={14} height={14}><path d="m6 9 6 6 6-6"/></svg>);
 export const Check = (p: SVGProps<SVGSVGElement>) => (<svg {...base(p)} strokeWidth={2.4}><path d="M20 6 9 17l-5-5"/></svg>);
-export const ArrowRight = (p: SVGProps<SVGSVGElement>) => (<svg {...base(p)} strokeWidth={1.5}><path d="M3.5 8.2 11 4l9.5 4.4-7.5 4.2z"/><path d="M3.5 8.2v7.3L13 20v-7.4z"/><path d="M20.5 8.4v7.2L13 20"/></svg>);
+export const ArrowRight = ({ className = "", width = 18, height = 18 }: SVGProps<SVGSVGElement>) => (
+  <img src={cubeAsset.url} alt="" aria-hidden="true" width={width} height={height} className={`object-contain ${className}`} />
+);
 export const Phone = (p: SVGProps<SVGSVGElement>) => (<svg {...base(p)}><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>);
 export const Play = (p: SVGProps<SVGSVGElement>) => (<svg width={12} height={12} viewBox="0 0 24 24" fill="currentColor" {...p}><path d="M8 5v14l11-7z"/></svg>);
 export const Plus = (p: SVGProps<SVGSVGElement>) => (<svg {...base(p)} strokeWidth={2}><path d="M12 5v14M5 12h14"/></svg>);
