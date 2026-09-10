@@ -42,6 +42,7 @@ export const DEFAULT_WORKSPACE: Workspace = {
   plan: "pro",
 };
 
+// @ts-ignore unused
 const getStoredUser = (): User | null => {
   try {
     const u = localStorage.getItem('authUser');
@@ -74,9 +75,10 @@ const persistAuth = (user: User | null, workspace: Workspace | null) => {
   } catch (e) {}
 };
 
+// No login screen: the app always runs with the default workspace user.
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(getStoredUser);
-  const [workspace, setWorkspace] = useState<Workspace | null>(getStoredWorkspace);
+  const [user, setUser] = useState<User | null>(DEFAULT_USER);
+  const [workspace, setWorkspace] = useState<Workspace | null>(DEFAULT_WORKSPACE);
   const [loading, setLoading] = useState<boolean>(false);
 
   const refreshSession = async () => {
