@@ -239,14 +239,14 @@ export default function Knowledge() {
   }, [sources, activeTab, query]);
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto pb-20 animate-fadein">
+    <div className="space-y-4 max-w-none mx-auto pb-20 animate-fadein min-h-[calc(100vh-2.5rem)]">
       {/* ─── Page Title (Exact kaliganai.com Standard) ──────────────────── */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl sm:text-4xl font-bold text-[#09090B] tracking-tight">
+          <h1 className="text-xl font-bold text-[#09090B] tracking-tight">
             Knowledge Base.
           </h1>
-          <p className="text-[14px] text-[#64748B] mt-1.5 font-normal max-w-2xl">
+          <p className="text-[11.5px] text-[#64748B] mt-1 font-normal max-w-2xl">
             Give your AI employees the ground-truth business context to answer accurately, follow SOPs, and complete tasks.
           </p>
         </div>
@@ -261,8 +261,8 @@ export default function Knowledge() {
       </div>
 
       {/* ─── 4 Core Capability Cards (From kaliganai.com/features/knowledge-base) ── */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="rounded-2xl bg-white border border-[#E5E7EB] p-5 shadow-xs">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <div className="rounded-xl bg-white border border-[#E5E7EB] p-4 shadow-xs">
           <div className="w-10 h-10 rounded-xl bg-[#F8F9FA] border border-[#E5E7EB] grid place-items-center text-[#09090B] shadow-2xs">
             <BookOpen className="w-4.5 h-4.5" />
           </div>
@@ -272,7 +272,7 @@ export default function Knowledge() {
           </p>
         </div>
 
-        <div className="rounded-2xl bg-white border border-[#E5E7EB] p-5 shadow-xs">
+        <div className="rounded-xl bg-white border border-[#E5E7EB] p-4 shadow-xs">
           <div className="w-10 h-10 rounded-xl bg-[#F8F9FA] border border-[#E5E7EB] grid place-items-center text-[#09090B] shadow-2xs">
             <FolderTree className="w-4.5 h-4.5" />
           </div>
@@ -282,7 +282,7 @@ export default function Knowledge() {
           </p>
         </div>
 
-        <div className="rounded-2xl bg-white border border-[#E5E7EB] p-5 shadow-xs">
+        <div className="rounded-xl bg-white border border-[#E5E7EB] p-4 shadow-xs">
           <div className="w-10 h-10 rounded-xl bg-[#F8F9FA] border border-[#E5E7EB] grid place-items-center text-[#09090B] shadow-2xs">
             <Brain className="w-4.5 h-4.5" />
           </div>
@@ -292,7 +292,7 @@ export default function Knowledge() {
           </p>
         </div>
 
-        <div className="rounded-2xl bg-white border border-[#E5E7EB] p-5 shadow-xs">
+        <div className="rounded-xl bg-white border border-[#E5E7EB] p-4 shadow-xs">
           <div className="w-10 h-10 rounded-xl bg-[#F8F9FA] border border-[#E5E7EB] grid place-items-center text-[#09090B] shadow-2xs">
             <Zap className="w-4.5 h-4.5" />
           </div>
@@ -304,7 +304,7 @@ export default function Knowledge() {
       </div>
 
       {/* ─── Seamless Container (Exact kaliganai.com Standard) ───────────── */}
-      <div className="rounded-[32px] border border-[#E5E7EB] bg-white p-6 sm:p-8 space-y-6 shadow-xs">
+      <div className="rounded-2xl border border-[#E5E7EB] bg-white p-5 space-y-4 shadow-xs">
         {/* Full-Width Search Input */}
         <div className="relative">
           <input

@@ -328,27 +328,27 @@ export default function AgentStudio() {
           1. TOP HEADER (Exact match to reference screenshot)
           KaliGanAI  |  Employee Studio               + New Chat   ← Exit Studio
       ───────────────────────────────────────────────────────────── */}
-      <header className="h-[56px] border-b border-zinc-200/80 bg-white px-6 flex items-center justify-between shrink-0 z-20">
-        <div className="flex items-center gap-3">
+      <header className="h-[56px] border-b border-zinc-200/80 bg-white px-3 sm:px-6 flex items-center justify-between shrink-0 z-20">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           <Link to="/app" className="flex items-center gap-2.5 group">
             <I.Logo className="w-5 h-5 text-zinc-900 shrink-0" />
             <span className="text-[14px] font-bold tracking-tight text-zinc-900">KaliGanAI</span>
           </Link>
-          <span className="text-zinc-300 font-light text-[15px] select-none">|</span>
-          <span className="text-[13.5px] font-medium text-zinc-800">Employee Studio</span>
+           <span className="hidden sm:inline text-zinc-300 font-light text-[15px] select-none">|</span>
+           <span className="hidden sm:inline text-[13.5px] font-medium text-zinc-800">Employee Studio</span>
         </div>
 
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-1.5 sm:gap-2.5">
           <button
             onClick={handleNewEmployee}
-            className="px-3.5 py-1.5 rounded-full border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-700 text-[12px] font-medium flex items-center gap-1.5 transition-colors cursor-pointer shadow-2xs"
+            className="px-2.5 sm:px-3.5 py-1.5 rounded-full border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-700 text-[12px] font-medium flex items-center gap-1.5 transition-colors cursor-pointer shadow-2xs"
           >
             <I.Plus width={12} height={12} />
             <span>New Chat</span>
           </button>
           <Link
             to="/app/agents"
-            className="px-3.5 py-1.5 rounded-full border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-700 text-[12px] font-medium flex items-center gap-1.5 transition-colors cursor-pointer shadow-2xs"
+            className="px-2.5 sm:px-3.5 py-1.5 rounded-full border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-700 text-[12px] font-medium flex items-center gap-1.5 transition-colors cursor-pointer shadow-2xs"
           >
             <I.ArrowLeft width={12} height={12} />
             <span>Exit Studio</span>
@@ -361,7 +361,7 @@ export default function AgentStudio() {
       ───────────────────────────────────────────────────────────── */}
       <div className="flex-1 flex min-h-0 overflow-hidden relative">
         {/* LEFT SIDEBAR (Exact match: + New Employee button, TODAY, YESTERDAY, PREVIOUS 7 DAYS) */}
-        <aside className="w-[250px] shrink-0 border-r border-zinc-100 bg-white flex flex-col p-4 overflow-y-auto">
+        <aside className="w-[250px] shrink-0 border-r border-zinc-100 bg-white hidden md:flex flex-col p-4 overflow-y-auto">
           {/* + New Employee Button */}
           <button
             onClick={handleNewEmployee}
@@ -403,9 +403,9 @@ export default function AgentStudio() {
         </aside>
 
         {/* CENTER MAIN CANVAS */}
-        <div className="flex-1 flex flex-col min-w-0 bg-white relative overflow-hidden">
+        <div className="studio-canvas flex-1 flex flex-col min-w-0 relative overflow-hidden">
           {/* Main Content Area */}
-          <div className="flex-1 overflow-y-auto w-full flex flex-col items-center justify-center p-6">
+          <div className="flex-1 overflow-y-auto w-full flex flex-col items-center justify-center p-4 sm:p-6">
             {!activeSession ? (
               /* ─────────────────────────────────────────────────────────────
                   EMPTY / INITIAL STATE (Exact match to reference screenshot)
@@ -416,7 +416,7 @@ export default function AgentStudio() {
                   [ Card 3 ]
               ───────────────────────────────────────────────────────────── */
               <div className="w-full max-w-[660px] flex flex-col items-center justify-center my-auto py-8">
-                <h1 className="text-[32px] sm:text-[36px] font-semibold text-zinc-900 tracking-tight text-center">
+                <h1 className="text-[28px] sm:text-[36px] font-semibold text-zinc-900 tracking-tight text-center">
                   Build an AI Employee
                 </h1>
                 <p className="text-[14.5px] text-zinc-500 text-center mt-2 mb-10">
@@ -653,7 +653,7 @@ export default function AgentStudio() {
               [ FileText  Mic ]               [ GreenBotBadge   ArrowCircle ]
               "AI Employees can make mistakes. Review generated workflows before deploying."
           ───────────────────────────────────────────────────────────── */}
-          <div className="w-full shrink-0 px-4 pb-4 pt-2 bg-white relative z-20">
+          <div className="w-full shrink-0 px-4 pb-4 pt-2 bg-transparent relative z-20">
             <div className="max-w-[720px] mx-auto w-full">
               <div className="rounded-2xl border border-zinc-200 bg-white shadow-xs p-3.5 focus-within:border-zinc-400 focus-within:shadow-sm transition-all">
                 <textarea
