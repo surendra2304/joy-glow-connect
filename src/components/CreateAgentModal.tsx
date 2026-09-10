@@ -69,7 +69,7 @@ export function CreateAgentModal({ isOpen, onClose }: CreateAgentModalProps) {
       onClick={onClose}
     >
       <div 
-        className="relative w-full max-w-2xl bg-white border border-[#E2E8F0] rounded-2xl shadow-2xl overflow-hidden animate-scalein"
+        className="relative w-full max-w-3xl bg-white border border-[#E2E8F0] rounded-2xl shadow-2xl overflow-hidden animate-scalein"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -92,12 +92,12 @@ export function CreateAgentModal({ isOpen, onClose }: CreateAgentModalProps) {
         </div>
 
         {/* 2-Option Card Grid */}
-        <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-5">
           {CREATION_OPTIONS.map((option) => (
             <div
               key={option.id}
               onClick={() => handleSelect(option.route)}
-              className="group flex flex-col justify-between p-5 rounded-xl border border-[#E2E8F0] bg-white hover:border-[#09090B] hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all cursor-pointer text-left relative"
+              className="group flex flex-col justify-between p-5 rounded-xl border border-[#E2E8F0] bg-white hover:border-[#09090B] hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all cursor-pointer text-left relative min-h-[285px]"
             >
               <div>
                 {/* Top Icon & Badge */}

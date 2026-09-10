@@ -403,7 +403,7 @@ export default function AgentStudio() {
         </aside>
 
         {/* CENTER MAIN CANVAS */}
-        <div className="flex-1 flex flex-col min-w-0 bg-white relative overflow-hidden">
+        <div className="studio-canvas flex-1 flex flex-col min-w-0 relative overflow-hidden">
           {/* Main Content Area */}
           <div className="flex-1 overflow-y-auto w-full flex flex-col items-center justify-center p-6">
             {!activeSession ? (
@@ -653,7 +653,7 @@ export default function AgentStudio() {
               [ FileText  Mic ]               [ GreenBotBadge   ArrowCircle ]
               "AI Employees can make mistakes. Review generated workflows before deploying."
           ───────────────────────────────────────────────────────────── */}
-          <div className="w-full shrink-0 px-4 pb-4 pt-2 bg-white relative z-20">
+          <div className="w-full shrink-0 px-4 pb-4 pt-2 bg-transparent relative z-20">
             <div className="max-w-[720px] mx-auto w-full">
               <div className="rounded-2xl border border-zinc-200 bg-white shadow-xs p-3.5 focus-within:border-zinc-400 focus-within:shadow-sm transition-all">
                 <textarea

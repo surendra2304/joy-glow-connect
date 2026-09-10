@@ -51,12 +51,12 @@ export default function AppShell() {
   }
 
   return (
-    <div className="grid grid-cols-[180px_minmax(0,1fr)] min-h-screen bg-background text-foreground">
+    <div className="grid grid-cols-1 md:grid-cols-[180px_minmax(0,1fr)] min-h-screen bg-background text-foreground">
       {/* Create Agent Modal */}
       <CreateAgentModal isOpen={showCreateModal} onClose={() => setShowCreateModal(false)} />
 
       {/* Fixed Grounded Sidebar Layout */}
-      <aside className="flex flex-col sticky top-0 h-screen overflow-hidden border-r border-border bg-sidebar">
+      <aside className="hidden md:flex flex-col sticky top-0 h-screen overflow-hidden border-r border-border bg-sidebar">
         
         {/* Brand Header */}
         <div className="shrink-0 px-3.5 pt-4 pb-3 border-b border-border/80">
@@ -121,7 +121,7 @@ export default function AppShell() {
       </aside>
 
       {/* Main Full-Height Content Area */}
-      <main className="app-workspace-canvas px-4 py-5 pb-16 min-w-0 overflow-y-auto max-h-screen">
+      <main className="app-workspace-canvas px-4 py-5 pb-16 min-w-0 overflow-y-auto min-h-screen md:max-h-screen">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
