@@ -13,6 +13,9 @@ import {
   Trash2,
   Plus,
   RefreshCw,
+  HelpCircle,
+  PackageOpen,
+  ArrowLeftRight,
 } from "lucide-react";
 
 interface DocSource {
@@ -214,6 +217,14 @@ export default function Knowledge() {
   // Category Tabs
   const sourceTabs = ["All", "Documents", "Website", "FAQs", "Policies"];
 
+  const referenceSources = [
+    { name: "Refund Policy", detail: "Customer policy document", type: "Policy", updated: "Updated 2h ago", icon: RefreshCw },
+    { name: "Shipping Policy", detail: "Fulfillment guidelines", type: "Policy", updated: "Updated 1d ago", icon: PackageOpen },
+    { name: "Return Process SOP", detail: "Step-by-step workflow", type: "SOP", updated: "Updated 3d ago", icon: ArrowLeftRight },
+    { name: "Product Guide", detail: "Feature and plan details", type: "Document", updated: "Updated 4d ago", icon: BookOpen },
+    { name: "Help Center", detail: "Imported website content", type: "Website", updated: "Updated 1w ago", icon: HelpCircle },
+  ];
+
   const filteredSources = useMemo(() => {
     return sources.filter((s) => {
       const t = s.type.toLowerCase();
@@ -240,212 +251,50 @@ export default function Knowledge() {
 
   return (
     <div className="space-y-4 max-w-none mx-auto pb-20 animate-fadein min-h-[calc(100vh-2.5rem)]">
-      {/* ─── Page Title (Exact kaliganai.com Standard) ──────────────────── */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-border">
         <div>
           <h1 className="text-xl font-bold text-[#09090B] tracking-tight">
-            Knowledge Base.
+            Knowledge Base
           </h1>
           <p className="text-[11.5px] text-[#64748B] mt-1 font-normal max-w-2xl">
             Give your AI employees the ground-truth business context to answer accurately, follow SOPs, and complete tasks.
           </p>
         </div>
 
-        <button
-          onClick={() => setModalOpen(true)}
-          className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#09090B] text-white px-5 py-2.5 text-[13px] font-semibold hover:bg-black transition-all cursor-pointer shadow-xs active:scale-[0.98] self-start sm:self-auto shrink-0"
-        >
-          <Plus className="w-4 h-4" />
-          <span>Add Knowledge Source</span>
-        </button>
       </div>
-
-      {/* ─── 4 Core Capability Cards (From kaliganai.com/features/knowledge-base) ── */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-        <div className="rounded-xl bg-white border border-[#E5E7EB] p-4 shadow-xs">
-          <div className="w-10 h-10 rounded-xl bg-[#F8F9FA] border border-[#E5E7EB] grid place-items-center text-[#09090B] shadow-2xs">
-            <BookOpen className="w-4.5 h-4.5" />
-          </div>
-          <h3 className="font-bold text-[15px] text-[#09090B] mt-3.5 tracking-tight">Collect</h3>
-          <p className="text-[12px] text-[#64748B] leading-relaxed mt-1">
-            Bring together PDFs, policies, FAQs, product docs, and website pages into one central vault.
-          </p>
+      <section className="overflow-hidden rounded-[28px] border border-border bg-card shadow-[0_18px_45px_-38px_rgba(15,23,42,.5)]">
+        <div className="flex items-center justify-between border-b border-border px-6 py-5">
+          <h2 className="text-[16px] font-semibold">Knowledge Base</h2>
+          <button onClick={() => setModalOpen(true)} className="g-btn"><Plus className="h-3.5 w-3.5" /> Add source</button>
         </div>
-
-        <div className="rounded-xl bg-white border border-[#E5E7EB] p-4 shadow-xs">
-          <div className="w-10 h-10 rounded-xl bg-[#F8F9FA] border border-[#E5E7EB] grid place-items-center text-[#09090B] shadow-2xs">
-            <FolderTree className="w-4.5 h-4.5" />
-          </div>
-          <h3 className="font-bold text-[15px] text-[#09090B] mt-3.5 tracking-tight">Organize</h3>
-          <p className="text-[12px] text-[#64748B] leading-relaxed mt-1">
-            Auto-chunk and vectorize content so AI employees instantly locate relevant paragraphs.
-          </p>
-        </div>
-
-        <div className="rounded-xl bg-white border border-[#E5E7EB] p-4 shadow-xs">
-          <div className="w-10 h-10 rounded-xl bg-[#F8F9FA] border border-[#E5E7EB] grid place-items-center text-[#09090B] shadow-2xs">
-            <Brain className="w-4.5 h-4.5" />
-          </div>
-          <h3 className="font-bold text-[15px] text-[#09090B] mt-3.5 tracking-tight">Understand</h3>
-          <p className="text-[12px] text-[#64748B] leading-relaxed mt-1">
-            Semantic vector embeddings provide deep contextual awareness across diverse inquiries.
-          </p>
-        </div>
-
-        <div className="rounded-xl bg-white border border-[#E5E7EB] p-4 shadow-xs">
-          <div className="w-10 h-10 rounded-xl bg-[#F8F9FA] border border-[#E5E7EB] grid place-items-center text-[#09090B] shadow-2xs">
-            <Zap className="w-4.5 h-4.5" />
-          </div>
-          <h3 className="font-bold text-[15px] text-[#09090B] mt-3.5 tracking-tight">Act</h3>
-          <p className="text-[12px] text-[#64748B] leading-relaxed mt-1">
-            Grounded reasoning guarantees trustworthy answers without hallucinations in Voice or Chat.
-          </p>
-        </div>
-      </div>
-
-      {/* ─── Seamless Container (Exact kaliganai.com Standard) ───────────── */}
-      <div className="rounded-2xl border border-[#E5E7EB] bg-white p-5 space-y-4 shadow-xs">
-        {/* Full-Width Search Input */}
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Search knowledge documents, topics, or FAQs..."
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className="w-full pl-5 pr-11 py-3.5 text-[14px] rounded-full border border-[#E5E7EB] bg-white text-[#09090B] placeholder-[#94A3B8] focus:outline-none focus:border-[#09090B] transition-all shadow-2xs"
-          />
-          <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center">
-            {query ? (
-              <button
-                onClick={() => setQuery("")}
-                className="text-[#94A3B8] hover:text-[#09090B] cursor-pointer p-1"
-                title="Clear search"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            ) : (
-              <Search className="w-4 h-4 text-[#94A3B8] pointer-events-none" />
-            )}
-          </div>
-        </div>
-
-        {/* Category Pill Tabs Strip */}
-        <div className="flex items-center justify-between gap-3 flex-wrap pt-1">
-          <div className="flex flex-wrap gap-2">
-            {sourceTabs.map((tab) => {
-              const active = activeTab === tab;
-              return (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`rounded-full px-4 py-1.5 text-[12.5px] font-medium transition-all cursor-pointer ${
-                    active
-                      ? "bg-[#09090B] text-white shadow-xs font-semibold"
-                      : "bg-white border border-[#E5E7EB] text-[#64748B] hover:text-[#09090B] hover:bg-[#F4F5F6]"
-                  }`}
-                >
-                  {tab}
-                </button>
-              );
-            })}
-          </div>
-
-          {metrics && (
-            <span className="text-[12px] font-medium text-[#64748B]">
-              ~{metrics.topicsApprox} topics indexed across {metrics.sources} source{metrics.sources !== 1 ? "s" : ""}
-            </span>
-          )}
-        </div>
-
-        {/* Sources List / Empty State */}
-        {loading ? (
-          <div className="py-16">
-            <Loading label="Loading knowledge base" subtitle="Syncing documents and vector topics" />
-          </div>
-        ) : filteredSources.length === 0 ? (
-          <div className="rounded-2xl border border-[#E5E7EB] p-12 text-center my-4 space-y-3">
-            <div className="w-11 h-11 rounded-xl bg-[#F8F9FA] border border-[#E5E7EB] grid place-items-center mx-auto text-[#64748B]">
-              <FileText className="w-5 h-5" />
+        <div className="grid min-h-[510px] md:grid-cols-[220px_minmax(0,1fr)]">
+          <aside className="border-b border-border bg-muted/40 p-5 md:border-b-0 md:border-r">
+            <div className="flex flex-col gap-1.5">
+              {["All Sources", "Documents", "Website", "FAQs", "Policies", "SOPs"].map((tab) => (
+                <button key={tab} onClick={() => setActiveTab(tab === "All Sources" ? "All" : tab)} className={`rounded-xl px-4 py-3 text-left text-[13px] transition-colors ${(activeTab === "All" && tab === "All Sources") || activeTab === tab ? "border border-border bg-card font-medium shadow-xs" : "text-muted-foreground hover:bg-card/70"}`}>{tab}</button>
+              ))}
             </div>
-            <h3 className="text-base font-bold text-[#09090B]">No knowledge sources found</h3>
-            <p className="text-[#64748B] text-[13px] max-w-sm mx-auto">
-              Upload policies, paste Q&As, or link webpage documentation so your AI employees can learn your business.
-            </p>
-            <button
-              onClick={() => setModalOpen(true)}
-              className="inline-flex items-center gap-1.5 rounded-full bg-[#09090B] text-white px-4 py-1.5 text-[12.5px] font-semibold hover:bg-black transition-all cursor-pointer shadow-xs"
-            >
-              <Plus className="w-3.5 h-3.5" />
-              <span>Add your first source</span>
-            </button>
+          </aside>
+          <div className="p-6 md:p-7">
+            <div className="mb-5 flex items-center justify-between gap-4">
+              <h2 className="text-[24px] font-medium">Recent Sources</h2>
+              <div className="relative hidden sm:block">
+                <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search sources" className="h-9 w-44 rounded-full border border-border bg-card pl-4 pr-9 text-xs outline-none" />
+                <Search className="absolute right-3 top-2.5 h-3.5 w-3.5 text-muted-foreground" />
+              </div>
+            </div>
+            <div className="space-y-2.5">
+              {referenceSources.filter((item) => !query || item.name.toLowerCase().includes(query.toLowerCase())).map((item) => {
+                const Icon = item.icon;
+                return <div key={item.name} className="grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-2xl border border-border px-4 py-3.5 hover:bg-muted/30">
+                  <span className="grid h-10 w-10 place-items-center rounded-full border border-border bg-card"><Icon className="h-4 w-4" /></span>
+                  <div><h3 className="text-[14px] font-semibold">{item.name}</h3><p className="text-[11.5px] text-muted-foreground">{item.detail}</p></div>
+                  <div className="hidden min-w-[210px] grid-cols-2 text-[11.5px] text-muted-foreground sm:grid"><span>{item.type}</span><span className="text-right">{item.updated}</span></div>
+                </div>;
+              })}
+            </div>
           </div>
-        ) : (
-          <div className="divide-y divide-[#E5E7EB] rounded-2xl border border-[#E5E7EB] overflow-hidden">
-            {filteredSources.map((s) => {
-              const isProcessing = s.status === "processing";
-              const isFailed = s.status === "failed";
-
-              return (
-                <div
-                  key={s.id}
-                  className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 sm:px-6 hover:bg-[#F8F9FA] transition-colors"
-                >
-                  <div className="flex items-center gap-3.5 min-w-0">
-                    <div className="w-10 h-10 rounded-xl bg-white border border-[#E5E7EB] grid place-items-center shrink-0 shadow-2xs font-semibold text-[11px] text-[#09090B] uppercase">
-                      {s.type.slice(0, 3)}
-                    </div>
-                    <div className="min-w-0">
-                      <h4 className="font-bold text-[14px] text-[#09090B] truncate">
-                        {s.name}
-                      </h4>
-                      <div className="flex items-center gap-2 mt-0.5 text-[11.5px] text-[#94A3B8]">
-                        <span>{s.chunkCount} vector chunks</span>
-                        <span>•</span>
-                        <span>Updated {formatUpdateDate(s.updatedAt)}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3 self-end sm:self-auto">
-                    {isProcessing ? (
-                      <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/60">
-                        <RefreshCw className="w-3 h-3 animate-spin text-blue-600" />
-                        Processing {s.pct}%
-                      </span>
-                    ) : isFailed ? (
-                      <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-red-700 bg-red-50 px-2.5 py-0.5 rounded-full border border-red-200/60">
-                        Failed
-                      </span>
-                    ) : (
-                      <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/60">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                        Synced
-                      </span>
-                    )}
-
-                    {isFailed ? (
-                      <button
-                        onClick={() => handleRetry(s.id)}
-                        className="inline-flex items-center gap-1 text-[12px] font-semibold text-[#09090B] hover:underline cursor-pointer"
-                      >
-                        <RotateCcw className="w-3 h-3" />
-                        <span>Retry</span>
-                      </button>
-                    ) : (
-                      <button
-                        onClick={() => handleDelete(s.id)}
-                        className="text-[#94A3B8] hover:text-red-600 transition-colors p-1 cursor-pointer"
-                        title="Delete source"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        )}
+        </div>
       </div>
 
       {/* ─── Add Knowledge Source Modal ─────────────────────────────────── */}
