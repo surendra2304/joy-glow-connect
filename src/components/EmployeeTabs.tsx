@@ -846,7 +846,7 @@ export function AgentLeadsTab({ agentId, agentName }: { agentId: string; agentNa
             {leads.map((l) => (
               <tr key={l.id} className="hover:bg-[var(--g-surface)] transition">
                 <GTd>
-                  <Link to={`/app/leads/${l.id}`} className="font-semibold text-[13.5px] hover:underline text-[var(--g-foreground)]">
+                  <Link to="/app/agents" className="font-semibold text-[13.5px] hover:underline text-[var(--g-foreground)]">
                     {l.name || "Anonymous Prospect"}
                   </Link>
                 </GTd>

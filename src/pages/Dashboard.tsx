@@ -379,7 +379,7 @@ export default function Dashboard() {
                 metrics.needsYou.map((l) => (
                   <Link
                     key={l.id}
-                    to={`/app/leads/${l.id}`}
+                    to="/app/agents"
                     className="flex items-center gap-3.5 px-5 py-3 border-t border-line hover:bg-[var(--g-surface)] transition group"
                   >
                     <ScoreBadge score={l.score} />

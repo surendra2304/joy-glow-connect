@@ -226,7 +226,7 @@ export function Leads() {
                     >
                       <td className="px-5 py-3.5">
                         <Link
-                          to={`/app/leads/${l.id}`}
+                          to="/app/agents"
                           className="font-semibold hover:text-[var(--g-muted-foreground)] text-[var(--g-foreground)]"
                         >
                           {l.name || "Anonymous Lead"}
