@@ -27,6 +27,7 @@ import { Route as AppOnboardingRouteImport } from './routes/app/onboarding'
 import { Route as AppSettingsRouteImport } from './routes/app/settings'
 import { Route as AppStudioRouteImport } from './routes/app/studio'
 import { Route as AppTicketsRouteImport } from './routes/app/tickets'
+import { Route as AppWidgetRouteImport } from './routes/app/widget'
 import { Route as ApiV1SplatRouteImport } from './routes/api/v1/$'
 import { Route as AppAgentsIndexRouteImport } from './routes/app/agents/index'
 import { Route as AppAgentsIdRouteImport } from './routes/app/agents/$id'
@@ -35,6 +36,7 @@ import { Route as AppChatAgentIndexRouteImport } from './routes/app/chat-agent/i
 import { Route as AppChatAgentIdRouteImport } from './routes/app/chat-agent/$id'
 import { Route as AppConversationsIndexRouteImport } from './routes/app/conversations/index'
 import { Route as AppConversationsIdRouteImport } from './routes/app/conversations/$id'
+import { Route as AppLeadsIdRouteImport } from './routes/app/leads/$id'
 import { Route as AppTemplatesIndexRouteImport } from './routes/app/templates/index'
 import { Route as AppTemplatesTemplateIdRouteImport } from './routes/app/templates/$templateId'
 import { Route as AppVoiceIndexRouteImport } from './routes/app/voice/index'
@@ -131,6 +133,11 @@ const AppTicketsRoute = AppTicketsRouteImport.update({
   path: '/tickets',
   getParentRoute: () => AppRoute,
 } as any)
+const AppWidgetRoute = AppWidgetRouteImport.update({
+  id: '/widget',
+  path: '/widget',
+  getParentRoute: () => AppRoute,
+} as any)
 const ApiV1SplatRoute = ApiV1SplatRouteImport.update({
   id: '/api/v1/$',
   path: '/api/v1/$',
@@ -171,6 +178,11 @@ const AppConversationsIdRoute = AppConversationsIdRouteImport.update({
   path: '/conversations/$id',
   getParentRoute: () => AppRoute,
 } as any)
+const AppLeadsIdRoute = AppLeadsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => AppLeadsRoute,
+} as any)
 const AppTemplatesIndexRoute = AppTemplatesIndexRouteImport.update({
   id: '/templates/',
   path: '/templates/',
@@ -210,18 +222,20 @@ export interface FileRoutesByFullPath {
   '/app/docs': typeof AppDocsRoute
   '/app/integrations': typeof AppIntegrationsRoute
   '/app/knowledge': typeof AppKnowledgeRoute
-  '/app/leads': typeof AppLeadsRoute
+  '/app/leads': typeof AppLeadsRouteWithChildren
   '/app/numbers': typeof AppNumbersRoute
   '/app/onboarding': typeof AppOnboardingRoute
   '/app/settings': typeof AppSettingsRoute
   '/app/studio': typeof AppStudioRoute
   '/app/tickets': typeof AppTicketsRoute
+  '/app/widget': typeof AppWidgetRoute
   '/app/': typeof AppIndexRoute
   '/api/v1/$': typeof ApiV1SplatRoute
   '/app/agents/$id': typeof AppAgentsIdRoute
   '/app/agents/new': typeof AppAgentsNewRoute
   '/app/chat-agent/$id': typeof AppChatAgentIdRoute
   '/app/conversations/$id': typeof AppConversationsIdRoute
+  '/app/leads/$id': typeof AppLeadsIdRoute
   '/app/templates/$templateId': typeof AppTemplatesTemplateIdRouteWithChildren
   '/app/voice/$id': typeof AppVoiceIdRoute
   '/app/agents/': typeof AppAgentsIndexRoute
@@ -242,18 +256,20 @@ export interface FileRoutesByTo {
   '/app/docs': typeof AppDocsRoute
   '/app/integrations': typeof AppIntegrationsRoute
   '/app/knowledge': typeof AppKnowledgeRoute
-  '/app/leads': typeof AppLeadsRoute
+  '/app/leads': typeof AppLeadsRouteWithChildren
   '/app/numbers': typeof AppNumbersRoute
   '/app/onboarding': typeof AppOnboardingRoute
   '/app/settings': typeof AppSettingsRoute
   '/app/studio': typeof AppStudioRoute
   '/app/tickets': typeof AppTicketsRoute
+  '/app/widget': typeof AppWidgetRoute
   '/app': typeof AppIndexRoute
   '/api/v1/$': typeof ApiV1SplatRoute
   '/app/agents/$id': typeof AppAgentsIdRoute
   '/app/agents/new': typeof AppAgentsNewRoute
   '/app/chat-agent/$id': typeof AppChatAgentIdRoute
   '/app/conversations/$id': typeof AppConversationsIdRoute
+  '/app/leads/$id': typeof AppLeadsIdRoute
   '/app/templates/$templateId': typeof AppTemplatesTemplateIdRouteWithChildren
   '/app/voice/$id': typeof AppVoiceIdRoute
   '/app/agents': typeof AppAgentsIndexRoute
@@ -276,18 +292,20 @@ export interface FileRoutesById {
   '/app/docs': typeof AppDocsRoute
   '/app/integrations': typeof AppIntegrationsRoute
   '/app/knowledge': typeof AppKnowledgeRoute
-  '/app/leads': typeof AppLeadsRoute
+  '/app/leads': typeof AppLeadsRouteWithChildren
   '/app/numbers': typeof AppNumbersRoute
   '/app/onboarding': typeof AppOnboardingRoute
   '/app/settings': typeof AppSettingsRoute
   '/app/studio': typeof AppStudioRoute
   '/app/tickets': typeof AppTicketsRoute
+  '/app/widget': typeof AppWidgetRoute
   '/app/': typeof AppIndexRoute
   '/api/v1/$': typeof ApiV1SplatRoute
   '/app/agents/$id': typeof AppAgentsIdRoute
   '/app/agents/new': typeof AppAgentsNewRoute
   '/app/chat-agent/$id': typeof AppChatAgentIdRoute
   '/app/conversations/$id': typeof AppConversationsIdRoute
+  '/app/leads/$id': typeof AppLeadsIdRoute
   '/app/templates/$templateId': typeof AppTemplatesTemplateIdRouteWithChildren
   '/app/voice/$id': typeof AppVoiceIdRoute
   '/app/agents/': typeof AppAgentsIndexRoute
@@ -317,12 +335,14 @@ export interface FileRouteTypes {
     | '/app/settings'
     | '/app/studio'
     | '/app/tickets'
+    | '/app/widget'
     | '/app/'
     | '/api/v1/$'
     | '/app/agents/$id'
     | '/app/agents/new'
     | '/app/chat-agent/$id'
     | '/app/conversations/$id'
+    | '/app/leads/$id'
     | '/app/templates/$templateId'
     | '/app/voice/$id'
     | '/app/agents/'
@@ -349,12 +369,14 @@ export interface FileRouteTypes {
     | '/app/settings'
     | '/app/studio'
     | '/app/tickets'
+    | '/app/widget'
     | '/app'
     | '/api/v1/$'
     | '/app/agents/$id'
     | '/app/agents/new'
     | '/app/chat-agent/$id'
     | '/app/conversations/$id'
+    | '/app/leads/$id'
     | '/app/templates/$templateId'
     | '/app/voice/$id'
     | '/app/agents'
@@ -382,12 +404,14 @@ export interface FileRouteTypes {
     | '/app/settings'
     | '/app/studio'
     | '/app/tickets'
+    | '/app/widget'
     | '/app/'
     | '/api/v1/$'
     | '/app/agents/$id'
     | '/app/agents/new'
     | '/app/chat-agent/$id'
     | '/app/conversations/$id'
+    | '/app/leads/$id'
     | '/app/templates/$templateId'
     | '/app/voice/$id'
     | '/app/agents/'
@@ -534,6 +558,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppTicketsRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/widget': {
+      id: '/app/widget'
+      path: '/widget'
+      fullPath: '/app/widget'
+      preLoaderRoute: typeof AppWidgetRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/api/v1/$': {
       id: '/api/v1/$'
       path: '/api/v1/$'
@@ -590,6 +621,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppConversationsIdRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/leads/$id': {
+      id: '/app/leads/$id'
+      path: '/$id'
+      fullPath: '/app/leads/$id'
+      preLoaderRoute: typeof AppLeadsIdRouteImport
+      parentRoute: typeof AppLeadsRoute
+    }
     '/app/templates/': {
       id: '/app/templates/'
       path: '/templates'
@@ -628,6 +666,18 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AppLeadsRouteChildren {
+  AppLeadsIdRoute: typeof AppLeadsIdRoute
+}
+
+const AppLeadsRouteChildren: AppLeadsRouteChildren = {
+  AppLeadsIdRoute: AppLeadsIdRoute,
+}
+
+const AppLeadsRouteWithChildren = AppLeadsRoute._addFileChildren(
+  AppLeadsRouteChildren,
+)
+
 interface AppTemplatesTemplateIdRouteChildren {
   AppTemplatesTemplateIdEditRoute: typeof AppTemplatesTemplateIdEditRoute
 }
@@ -650,12 +700,13 @@ interface AppRouteChildren {
   AppDocsRoute: typeof AppDocsRoute
   AppIntegrationsRoute: typeof AppIntegrationsRoute
   AppKnowledgeRoute: typeof AppKnowledgeRoute
-  AppLeadsRoute: typeof AppLeadsRoute
+  AppLeadsRoute: typeof AppLeadsRouteWithChildren
   AppNumbersRoute: typeof AppNumbersRoute
   AppOnboardingRoute: typeof AppOnboardingRoute
   AppSettingsRoute: typeof AppSettingsRoute
   AppStudioRoute: typeof AppStudioRoute
   AppTicketsRoute: typeof AppTicketsRoute
+  AppWidgetRoute: typeof AppWidgetRoute
   AppIndexRoute: typeof AppIndexRoute
   AppAgentsIdRoute: typeof AppAgentsIdRoute
   AppAgentsNewRoute: typeof AppAgentsNewRoute
@@ -678,12 +729,13 @@ const AppRouteChildren: AppRouteChildren = {
   AppDocsRoute: AppDocsRoute,
   AppIntegrationsRoute: AppIntegrationsRoute,
   AppKnowledgeRoute: AppKnowledgeRoute,
-  AppLeadsRoute: AppLeadsRoute,
+  AppLeadsRoute: AppLeadsRouteWithChildren,
   AppNumbersRoute: AppNumbersRoute,
   AppOnboardingRoute: AppOnboardingRoute,
   AppSettingsRoute: AppSettingsRoute,
   AppStudioRoute: AppStudioRoute,
   AppTicketsRoute: AppTicketsRoute,
+  AppWidgetRoute: AppWidgetRoute,
   AppIndexRoute: AppIndexRoute,
   AppAgentsIdRoute: AppAgentsIdRoute,
   AppAgentsNewRoute: AppAgentsNewRoute,

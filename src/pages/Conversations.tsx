@@ -89,7 +89,7 @@ export default function Conversations() {
       
       // If we have no active id in URL and no selection, select first thread
       if (data && data.length > 0 && !window.location.pathname.split("/app/conversations/")[1]) {
-        navigate(`/app/conversations/${data[0].id}`, { replace: true });
+        navigate({ to: `/app/conversations/${data[0].id}` as any, replace: true });
       }
     } catch (err: any) {
       if (!tabListCache[tabQuery]) {

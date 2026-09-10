@@ -60,7 +60,7 @@ export function CreateAgentModal({ isOpen, onClose }: CreateAgentModalProps) {
 
   const handleSelect = (route: string) => {
     onClose();
-    navigate(route);
+    navigate({ to: route as any });
   };
 
   return (
