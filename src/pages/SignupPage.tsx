@@ -22,7 +22,7 @@ export default function SignupPage() {
       await signup(company, "", email, password); // empty website URL
       setDone(true);
       setTimeout(() => {
-        navigate("/login");
+        navigate({ to: "/login" });
       }, 3000);
     } catch (err: any) {
       setError(err.response?.data?.message || err.message || "Failed to sign up");

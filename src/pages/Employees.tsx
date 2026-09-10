@@ -98,7 +98,7 @@ export function Employees() {
           </div>
 
           <button
-            onClick={() => navigate("/app/studio")}
+            onClick={() => navigate({ to: "/app/studio" })}
             className="inline-flex items-center gap-1.5 rounded-full bg-white border border-[#E5E7EB] px-4 py-2 text-[13px] font-semibold text-[#09090B] hover:bg-[#F4F5F6] transition-all cursor-pointer shadow-2xs"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#475569]" />
@@ -146,7 +146,7 @@ export function Employees() {
             return (
               <div
                 key={agent.id}
-                onClick={() => navigate(`/app/agents/${agent.id}`)}
+                onClick={() => navigate({ to: `/app/agents/${agent.id}` })}
                 className="group rounded-3xl bg-white border border-[#E5E7EB] p-6 hover:border-[#CBD5E1] hover:shadow-[0_10px_30px_-6px_rgba(0,0,0,0.05)] hover:-translate-y-0.5 transition-all flex flex-col justify-between min-h-[220px] cursor-pointer shadow-[0_1px_3px_rgba(0,0,0,0.02)] space-y-4"
               >
                 <div>

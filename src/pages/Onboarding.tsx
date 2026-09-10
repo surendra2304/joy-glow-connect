@@ -177,7 +177,7 @@ export function Onboarding() {
               )}
             </div>
             <div className="flex justify-center gap-3 mt-6">
-              <button className="btn border" onClick={() => navigate("/app/knowledge")}>
+              <button className="btn border" onClick={() => navigate({ to: "/app/knowledge" })}>
                 Manage Knowledge Base
               </button>
               <button
@@ -334,7 +334,7 @@ export function Onboarding() {
               <button className="btn border" onClick={() => setStep(4)}>
                 Back
               </button>
-              <button className="btn btn-primary bg-success text-[#ffffff]" onClick={() => navigate("/app")}>
+              <button className="btn btn-primary bg-success text-[#ffffff]" onClick={() => navigate({ to: "/app" })}>
                 Go to Dashboard
               </button>
             </div>

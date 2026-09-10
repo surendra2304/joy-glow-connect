@@ -234,7 +234,7 @@ export default function Templates() {
 
           {/* Agent Studio Link */}
           <Button
-            onClick={() => navigate("/app/studio")}
+            onClick={() => navigate({ to: "/app/studio" })}
             variant="outline"
             className="rounded-full px-3.5 py-2 text-[13px] cursor-pointer gap-1.5"
           >
@@ -299,7 +299,7 @@ export default function Templates() {
             <div className="flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-end justify-between gap-4 shrink-0">
               <div className="flex items-center gap-2.5">
                 <Button
-                  onClick={() => navigate(`/app/templates/${activeSpotlight.id}?mode=demo`)}
+                  onClick={() => navigate({ to: `/app/templates/${activeSpotlight.id}?mode=demo` })}
                   variant="secondary"
                   className="rounded-full bg-white/15 hover:bg-white/25 text-white border-white/20 text-[13px] px-4.5 py-2 cursor-pointer shadow-xs gap-1.5"
                 >
@@ -308,7 +308,7 @@ export default function Templates() {
                 </Button>
 
                 <Button
-                  onClick={() => navigate(`/app/templates/${activeSpotlight.id}`)}
+                  onClick={() => navigate({ to: `/app/templates/${activeSpotlight.id}` })}
                   className="rounded-full bg-white hover:bg-slate-100 text-[#09090B] font-bold text-[13px] px-5 py-2 cursor-pointer shadow-md gap-1.5 active:scale-[0.98]"
                 >
                   <span>Get Agent</span>
@@ -574,7 +574,7 @@ export default function Templates() {
                       type="button"
                       variant="ghost"
                       size="sm"
-                      onClick={() => navigate(`/app/templates/${tpl.id}?mode=demo`)}
+                      onClick={() => navigate({ to: `/app/templates/${tpl.id}?mode=demo` })}
                       className="rounded-full px-2.5 py-1 text-[12px] font-semibold text-[#64748B] hover:text-[#09090B] cursor-pointer h-7"
                     >
                       <Play className="w-3 h-3 fill-current text-[#64748B]" />
@@ -585,7 +585,7 @@ export default function Templates() {
                       type="button"
                       variant="default"
                       size="sm"
-                      onClick={() => navigate(`/app/templates/${tpl.id}`)}
+                      onClick={() => navigate({ to: `/app/templates/${tpl.id}` })}
                       className="rounded-full px-3 py-1 text-[12px] font-bold text-white bg-[#09090B] hover:bg-black cursor-pointer h-7 gap-1"
                     >
                       <span>Get Agent</span>

@@ -309,14 +309,14 @@ export default function AgentStudio() {
       setDeploySuccess(true);
       setTimeout(() => {
         if (newAgentId) {
-          navigate(`/app/agents/${newAgentId}`);
+          navigate({ to: `/app/agents/${newAgentId}` });
         } else {
-          navigate("/app/agents");
+          navigate({ to: "/app/agents" });
         }
       }, 900);
     } catch (err: unknown) {
       console.error("Failed to deploy agent to workforce:", err);
-      navigate("/app/agents");
+      navigate({ to: "/app/agents" });
     } finally {
       setIsDeploying(false);
     }

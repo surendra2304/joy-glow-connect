@@ -287,7 +287,7 @@ export default function Dashboard() {
           title="Install your chat widget"
           body="No conversations have been recorded yet. Embed the chat widget on your website to start capturing leads and qualified opportunities."
           action="Go to Widget Integration"
-          onAction={() => navigate("/app/widget")}
+          onAction={() => navigate({ to: "/app/widget" })}
         />
       </div>
     );

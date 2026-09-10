@@ -74,9 +74,9 @@ export default function TemplateFlow() {
       setHireSuccess(true);
       setTimeout(() => {
         if (res && res.id) {
-          navigate(`/app/agents/${res.id}`);
+          navigate({ to: `/app/agents/${res.id}` });
         } else {
-          navigate("/app/agents");
+          navigate({ to: "/app/agents" });
         }
       }, 800);
     } catch (err: any) {
@@ -84,7 +84,7 @@ export default function TemplateFlow() {
       // Even if offline/network fallback, gracefully navigate to studio with prefilled state
       setHireSuccess(true);
       setTimeout(() => {
-        navigate("/app/agents");
+        navigate({ to: "/app/agents" });
       }, 700);
     } finally {
       setIsHiring(false);

@@ -227,7 +227,7 @@ export default function Conversations() {
                       }}
                     >
                       <button
-                        onClick={() => navigate(`/app/conversations/${c.id}`)}
+                        onClick={() => navigate({ to: `/app/conversations/${c.id}` })}
                         className={`w-full text-left flex items-start gap-3 px-4 py-3.5 border-b border-line transition ${
                           id === c.id ? "bg-[var(--g-surface-2)] font-semibold" : "hover:bg-[var(--g-surface-2)]"
                         }`}
