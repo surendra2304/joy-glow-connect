@@ -261,7 +261,7 @@ export default function Knowledge() {
           </p>
         </div>
 
-      </section>
+      </div>
       <section className="overflow-hidden rounded-[28px] border border-border bg-card shadow-[0_18px_45px_-38px_rgba(15,23,42,.5)]">
         <div className="flex items-center justify-between border-b border-border px-6 py-5">
           <h2 className="text-[16px] font-semibold">Knowledge Base</h2>
@@ -295,7 +295,7 @@ export default function Knowledge() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* ─── Add Knowledge Source Modal ─────────────────────────────────── */}
       <GModal
