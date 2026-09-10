@@ -4,6 +4,15 @@ import * as I from "./icons";
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { CreateAgentModal } from "./CreateAgentModal";
+import employeesIcon from "../assets/figma/employees.png.asset.json";
+import knowledgeIcon from "../assets/figma/knowledge.png.asset.json";
+import integrationsIcon from "../assets/figma/integrations.png.asset.json";
+import phoneIcon from "../assets/figma/phone.png.asset.json";
+import analyticsIcon from "../assets/figma/analytics.png.asset.json";
+
+function FigmaNavIcon({ src, alt }: { src: string; alt: string }) {
+  return <img src={src} alt={alt} className="h-4 w-4 object-contain" />;
+}
 
 function Item({ to, icon, label, badge }: { to: string; icon: ReactNode; label: string; badge?: string }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -82,17 +91,17 @@ export default function AppShell() {
         {/* Navigation Groups */}
         <nav className="flex-1 overflow-y-auto px-3 py-0 g-no-scrollbar space-y-1">
           <Group label="Workforce">
-            <Item to="/app/agents" icon={<I.Bot width={15} height={15} />} label="AI Employees" />
+            <Item to="/app/agents" icon={<FigmaNavIcon src={employeesIcon.url} alt="" />} label="AI Employees" />
             <Item to="/app/templates" icon={<I.Grid width={15} height={15} />} label="Marketplace" badge="48" />
             <Item to="/app/studio" icon={<I.Bolt width={15} height={15} />} label="Agent Studio" />
           </Group>
           <Group label="Enterprise Assets">
-            <Item to="/app/knowledge" icon={<I.Book width={15} height={15} />} label="Knowledge Base" />
-            <Item to="/app/integrations" icon={<I.Plug width={15} height={15} />} label="Integrations Hub" />
-            <Item to="/app/numbers" icon={<I.SimCard width={15} height={15} />} label="Phone Numbers" />
+            <Item to="/app/knowledge" icon={<FigmaNavIcon src={knowledgeIcon.url} alt="" />} label="Knowledge Base" />
+            <Item to="/app/integrations" icon={<FigmaNavIcon src={integrationsIcon.url} alt="" />} label="Integrations Hub" />
+            <Item to="/app/numbers" icon={<FigmaNavIcon src={phoneIcon.url} alt="" />} label="Phone Numbers" />
           </Group>
           <Group label="Observability">
-            <Item to="/app/analytics" icon={<I.Chart width={15} height={15} />} label="Executive Analytics" />
+            <Item to="/app/analytics" icon={<FigmaNavIcon src={analyticsIcon.url} alt="" />} label="Executive Analytics" />
             <Item to="/app/docs" icon={<I.FileText width={15} height={15} />} label="Documentation" />
           </Group>
         </nav>

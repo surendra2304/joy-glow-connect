@@ -1,4 +1,5 @@
 import { CubeIcon } from "@/components/CubeIcon";
+import heroCube from "../assets/figma/hero-cube-white.png.asset.json";
 import { useState, useMemo } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import {
@@ -278,16 +279,14 @@ export default function Templates() {
 
               {/* Key Capabilities */}
               <div className="flex flex-wrap gap-2 pt-1">
-                <Button onClick={() => document.getElementById("marketplace-grid")?.scrollIntoView({ behavior: "smooth" })} className="rounded-full border border-background/45 bg-background/10 text-background hover:bg-background/20">Browse AI Employees <CubeIcon className="h-3.5 w-3.5" /></Button>
+                <Button onClick={() => document.getElementById("marketplace-filters")?.scrollIntoView({ behavior: "smooth" })} className="rounded-full border border-background/45 bg-background/10 text-background hover:bg-background/20">Browse AI Employees <span aria-hidden="true">→</span></Button>
                 <Button onClick={() => navigate({ to: "/app/studio" })} className="rounded-full border border-background/45 bg-background/10 text-background hover:bg-background/20"><Play className="h-3.5 w-3.5" /> How it works</Button>
               </div>
             </div>
 
             {/* Spotlight CTA & Switcher */}
             <div className="relative hidden h-[220px] w-[360px] shrink-0 lg:block" aria-hidden="true">
-              <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rotate-[32deg] border-2 border-background/90">
-                <div className="absolute inset-4 border border-background/60" />
-              </div>
+              <img src={heroCube.url} alt="" className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 object-contain" />
               {[['Sales','top-1 left-3'],['Customer Support','top-7 right-0'],['Operations','top-[94px] left-0'],['Voice','top-[112px] right-2'],['Productivity','bottom-0 left-28']].map(([label,pos]) => <span key={label} className={`absolute ${pos} rounded-full border border-background/50 bg-background/5 px-5 py-2 text-xs text-background/90`}>{label}</span>)}
             </div>
           </div>
@@ -295,7 +294,7 @@ export default function Templates() {
       )}
 
       {/* ─── 3. MARKETPLACE NAVIGATION & CATEGORY TABS ────────────────────── */}
-      <div className="space-y-3.5 pt-1">
+      <div id="marketplace-filters" className="space-y-3.5 pt-1">
         {/* Category Pills Strip */}
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <div className="flex flex-wrap gap-1.5">
@@ -388,173 +387,8 @@ export default function Templates() {
             )}
           </div>
 
-          {/* Sort Selector */}
-          <div className="flex items-center gap-2 shrink-0 self-end sm:self-auto">
-            <span className="text-[11.5px] font-medium text-[#94A3B8]">Sort:</span>
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as "featured" | "name" | "channel")}
-              className="text-[12px] font-semibold text-[#09090B] bg-white border border-[#E5E7EB] rounded-lg px-2.5 py-1 focus:outline-none cursor-pointer shadow-2xs"
-            >
-              <option value="featured">Featured First</option>
-              <option value="name">Name (A-Z)</option>
-              <option value="channel">Channel (Voice/Chat)</option>
-            </select>
-          </div>
         </div>
       </div>
-
-      {/* ─── 4. AGENT MARKETPLACE CARDS GRID ─────────────────────────────── */}
-      {filteredTemplates.length === 0 ? (
-        <div className="rounded-3xl bg-white border border-[#E5E7EB] p-12 text-center shadow-xs max-w-xl mx-auto my-8 space-y-4">
-          <div className="w-12 h-12 rounded-2xl bg-[#F8F9FA] text-[#09090B] border border-[#E5E7EB] grid place-items-center mx-auto">
-            <Search className="w-5 h-5 text-[#64748B]" />
-          </div>
-          <div>
-            <h3 className="text-base font-bold text-[#09090B]">No AI Agents matched your criteria</h3>
-            <p className="text-[#64748B] text-[13px] mt-1">
-              We couldn't find any agent matching your active filters. Try clearing your search query or selecting another department.
-            </p>
-          </div>
-          <Button
-            onClick={handleResetFilters}
-            variant="default"
-            className="rounded-full px-5 py-2 text-[13px] cursor-pointer"
-          >
-            <RotateCcw className="w-3.5 h-3.5" />
-            <span>Reset All Filters</span>
-          </Button>
-        </div>
-      ) : (
-        <div id="marketplace-grid" className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3.5 pt-1">
-          {filteredTemplates.map((tpl: EmployeeTemplate) => {
-            const isHybrid = tpl.channel === "hybrid";
-            const isVoice = tpl.channel === "voice";
-            const isComingSoon = tpl.status === "coming_soon";
-
-            return (
-              <Card
-                key={tpl.id}
-                className="group rounded-2xl bg-white border border-[#E5E7EB] p-4 hover:border-[#CBD5E1] hover:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-all flex flex-col justify-between min-h-[228px] shadow-[0_1px_3px_rgba(0,0,0,0.02)] space-y-3"
-              >
-                <div>
-                  {/* Card Header: Avatar, Name, Publisher & Status */}
-                  <div className="flex items-start justify-between gap-3 mb-2.5">
-                    <div className="flex items-center gap-3 min-w-0">
-                      <AgentAvatar
-                        name={tpl.name}
-                        role={tpl.role}
-                        category={tpl.category}
-                        kind={tpl.channel}
-                        size="md"
-                      />
-                      <div className="min-w-0">
-                        <div className="flex items-center gap-1.5">
-                          <h3 className="font-bold text-[15.5px] text-[#09090B] tracking-tight leading-tight truncate">
-                            {tpl.name}
-                          </h3>
-                        </div>
-                        <span className="text-[12px] text-[#64748B] font-medium block mt-0.5 truncate">
-                          {tpl.role}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Truthful Status Chip */}
-                    {isComingSoon ? (
-                      <span className="text-[11px] font-semibold text-[#64748B] bg-[#F4F5F6] px-2.5 py-0.5 rounded-full border border-[#E5E7EB] shrink-0">
-                        Coming Soon
-                      </span>
-                    ) : (
-                      <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/60 shrink-0">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                        Available
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Publisher Attribution & Channel Badges */}
-                  <div className="flex items-center gap-1.5 mb-2.5 flex-wrap">
-                    <span className="inline-flex items-center gap-1 text-[10.5px] font-semibold px-2 py-0.5 rounded-md bg-blue-50/80 text-blue-700 border border-blue-100">
-                      <ShieldCheck className="w-3 h-3 text-blue-600" />
-                      {tpl.publisher || "KaliGan AI"}
-                    </span>
-                    <span className="text-[10.5px] font-semibold px-2 py-0.5 rounded-md bg-[#09090B] text-white">
-                      {isHybrid ? "Hybrid V2" : isVoice ? "Voice AI" : "Chat AI"}
-                    </span>
-                    <span className="text-[10.5px] font-medium px-2 py-0.5 rounded-md bg-[#F4F5F6] text-[#475569] border border-[#E5E7EB]">
-                      {tpl.category}
-                    </span>
-                  </div>
-
-                  {/* Concise Outcome Proposition */}
-                  <p className="text-[12.5px] text-[#475569] leading-relaxed line-clamp-2">
-                    {tpl.headline}
-                  </p>
-
-                  {/* Capabilities Tags */}
-                  <div className="flex flex-wrap gap-1.5 mt-3">
-                    {tpl.capabilities.slice(0, 3).map((cap, idx) => (
-                      <span
-                        key={idx}
-                        className="px-2 py-0.5 rounded-full bg-[#F8F9FA] border border-[#E5E7EB] text-[10.5px] font-medium text-[#64748B]"
-                      >
-                        #{cap.toLowerCase().replace(/\s+/g, "-")}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Card Footer: Integrations & Actions */}
-                <div className="flex items-center justify-between pt-3.5 border-t border-[#F1F5F9] mt-auto">
-                  {/* Supported Integrations Stack */}
-                  <div className="flex items-center gap-1.5" title="Supported Integrations">
-                    {tpl.requiredConnectors.slice(0, 3).map((conn) => (
-                      <span
-                        key={conn}
-                        title={conn}
-                        className="w-6 h-6 rounded-md bg-[#F8F9FA] border border-[#E5E7EB] flex items-center justify-center text-[#09090B] text-xs shadow-2xs"
-                      >
-                        {renderConnectorIcon(conn)}
-                      </span>
-                    ))}
-                    {tpl.requiredConnectors.length > 3 && (
-                      <span className="text-[10.5px] font-medium text-[#94A3B8]">
-                        +{tpl.requiredConnectors.length - 3}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Primary Actions: Try Sandbox + Get Agent */}
-                  <div className="flex items-center gap-2">
-                    <Button
-                      type="button"
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => navigate({ to: `/app/templates/${tpl.id}?mode=demo` })}
-                      className="rounded-full px-2.5 py-1 text-[12px] font-semibold text-[#64748B] hover:text-[#09090B] cursor-pointer h-7"
-                    >
-                      <Play className="w-3 h-3 fill-current text-[#64748B]" />
-                      <span>Try</span>
-                    </Button>
-
-                    <Button
-                      type="button"
-                      variant="default"
-                      size="sm"
-                      onClick={() => navigate({ to: `/app/templates/${tpl.id}` })}
-                      className="rounded-full px-3 py-1 text-[12px] font-bold text-white bg-[#09090B] hover:bg-black cursor-pointer h-7 gap-1"
-                    >
-                      <span>Get Agent</span>
-                      <CubeIcon className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-            );
-          })}
-        </div>
-      )}
 
       {/* ─── 5. PUBLISH AGENT TO MARKETPLACE MODAL ───────────────────────── */}
       <Dialog open={isPublishOpen} onOpenChange={setIsPublishOpen}>
