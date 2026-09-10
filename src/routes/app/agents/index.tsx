@@ -8,6 +8,8 @@ export const Route = createFileRoute("/app/agents/")({
       { name: "description", content: "Your AI workforce." },
       { property: "og:title", content: "Agents — KaliGan AI" },
       { property: "og:description", content: "Your AI workforce." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Employees,

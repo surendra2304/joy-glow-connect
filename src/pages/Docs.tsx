@@ -17,7 +17,7 @@ function CodeBlock({ children }: { children: string }) {
 
 export default function Docs() {
   const { workspace } = useAuth();
-  const [activeTab, setActiveTab] = useState<"widget" | "knowledge" | "chat" | "voice">("widget");
+  const [activeTab, setActiveTab] = useState<"widget" | "knowledge" | "chat" | "voice">("knowledge");
   const [plat, setPlat] = useState("WordPress");
 
 
@@ -55,8 +55,8 @@ export default function Docs() {
         description="Learn how to install, configure and customize your AI employees in minutes."
       />
 
-      <div className="flex flex-col md:flex-row gap-8 items-start max-w-[840px]">
-        <aside className="w-full md:w-[196px] shrink-0 g-card p-2.5 flex flex-row md:flex-col gap-0.5 select-none flex-wrap">
+      <div className="flex flex-col md:flex-row gap-10 items-start max-w-[1120px] pt-5">
+        <aside className="w-full md:w-[260px] shrink-0 g-card p-3 flex flex-row md:flex-col gap-1 select-none flex-wrap">
           <span className="g-label-xs px-2.5 pb-2 pt-1 hidden md:block">Guides & setup</span>
           {navItems.map((it) => (
             <button
@@ -73,32 +73,18 @@ export default function Docs() {
         <div className="flex-1 min-w-0">
           {activeTab === "widget" && (
             <GSectionCard>
-              <div className="p-6">
-                <h2 className="text-[18px] font-bold mb-1">Widget installation code</h2>
+              <div className="p-8">
+                <h2 className="text-[22px] font-bold mb-1">Widget installation code</h2>
                 <p className="text-[13px] leading-relaxed mb-5" style={{ color: "var(--g-muted-foreground)" }}>
                   Get your AI live on your website in under 5 minutes. Copy the code below and insert it into your site pages.
                 </p>
 
-                <div className="flex items-center gap-3 mb-6 max-w-xl">
-                  {["Verify site", "Get code", "Install", "Verify"].map((s, i) => (
-                    <span key={s} className="flex items-center gap-2 shrink-0">
-                      <span className="w-4 h-4 rounded-full grid place-items-center g-mono text-[9px]"
-                        style={{ background: "var(--g-foreground)", color: "var(--g-background)" }}>
-                        {i + 1}
-                      </span>
-                      <span className="g-label-xs">{s}</span>
-                      {i < 3 && <span style={{ color: "var(--g-muted-foreground)" }}>→</span>}
-                    </span>
-                  ))}
-                </div>
-
                 <span className="g-label-xs block mb-1.5">Your install snippet</span>
-                <div className="flex items-stretch gap-2 mb-2">
-                  <code className="flex-1 g-mono text-[12px] border rounded-grok px-4 py-3 overflow-x-auto select-all leading-relaxed"
-                    style={{ borderColor: "var(--g-border)", background: "var(--g-surface)" }}>
+                <div className="flex items-stretch gap-2 mb-2 rounded-lg bg-foreground p-2">
+                  <code className="flex-1 g-mono text-[12px] px-2 py-2 overflow-x-auto select-all leading-relaxed text-background">
                     {snippet}
                   </code>
-                  <GCopyButton text={snippet} className="h-[36px] px-4 shadow-xs" />
+                  <GCopyButton text={snippet} className="h-[32px] px-4 border-background/20 bg-background/10 text-background" />
                 </div>
                 <p className="text-[11.5px] leading-relaxed mb-6" style={{ color: "var(--g-muted-foreground)" }}>
                   Paste this snippet just before the closing <code className="g-mono border rounded-[2px] px-1" style={{ borderColor: "var(--g-border)" }}>&lt;/body&gt;</code> tag.
@@ -113,7 +99,7 @@ export default function Docs() {
                   ))}
                 </div>
 
-                <div className="border rounded-grok p-4 text-[13px] leading-relaxed mb-6"
+                <div className="border rounded-grok p-5 text-[13px] leading-relaxed mb-6"
                   style={{ borderColor: "var(--g-border)", background: "var(--g-surface)" }}>
                   {plat === "HTML" && (
                     <div className="flex flex-col gap-1">
@@ -179,7 +165,7 @@ export default function RootLayout() {
                   )}
                 </div>
 
-                <div className="border-t pt-5 flex items-center gap-4" style={{ borderColor: "var(--g-border)" }}>
+                <div className="border-t pt-5 flex items-center justify-between gap-4" style={{ borderColor: "var(--g-border)" }}>
                   <button onClick={doVerify} className="g-btn">
                     {verify === "checking" ? "Checking…" : verify === "ok" ? "Installed" : "Verify installation"}
                   </button>
@@ -205,12 +191,12 @@ export default function RootLayout() {
 
           {activeTab === "knowledge" && (
             <GSectionCard>
-              <div className="p-6">
-                <h2 className="text-[18px] font-bold mb-1">Grounding &amp; Knowledge Base</h2>
-                <p className="text-[13px] leading-relaxed mb-5" style={{ color: "var(--g-muted-foreground)" }}>
+              <div className="p-9">
+                <h2 className="text-[24px] font-bold mb-1">Grounding &amp; Knowledge Base</h2>
+                <p className="text-[15px] leading-relaxed mb-8" style={{ color: "var(--g-muted-foreground)" }}>
                   How your AI employee acquires knowledge and answers factually without hallucinating.
                 </p>
-                <div className="flex flex-col gap-5 text-[13px] leading-relaxed">
+                <div className="flex flex-col gap-7 text-[14px] leading-relaxed">
                   <div>
                     <h3 className="font-medium mb-1">1. Document uploads</h3>
                     <span style={{ color: "var(--g-muted-foreground)" }}>
