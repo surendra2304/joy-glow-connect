@@ -1,0 +1,90 @@
+[
+  {
+    "id": "ACT-1095",
+    "name": "Send Welcome Email Sequence",
+    "agent": "Medha",
+    "agentRole": "Lead Capture Specialist",
+    "trigger": "Lead Captured",
+    "type": "Email",
+    "status": "success",
+    "time": "4m ago",
+    "details": "Delivered to sarah.j@foldstudio.com"
+  },
+  {
+    "id": "ACT-1094",
+    "name": "Sync Lead to Salesforce CRM",
+    "agent": "Anvay",
+    "agentRole": "Lead Qualification",
+    "trigger": "Meeting Booked",
+    "type": "Webhook",
+    "status": "success",
+    "time": "12m ago",
+    "details": "Created Opportunity #SF-8921 ($45k ARR)"
+  },
+  {
+    "id": "ACT-1093",
+    "name": "Dispatch Appointment SMS Reminder",
+    "agent": "Vani",
+    "agentRole": "Voice Representative",
+    "trigger": "Scheduled Call",
+    "type": "SMS",
+    "status": "pending",
+    "time": "28m ago",
+    "details": "Queued for +1 (415) 890-2134"
+  },
+  {
+    "id": "ACT-1092",
+    "name": "Escalate Urgent SLA Ticket to Linear",
+    "agent": "Vedant",
+    "agentRole": "Customer Support",
+    "trigger": "High Priority Inquiry",
+    "type": "Integration",
+    "status": "success",
+    "time": "45m ago",
+    "details": "Issue #ENG-4102 assigned to On-Call"
+  },
+  {
+    "id": "ACT-1091",
+    "name": "Update HubSpot Deal Stage",
+    "agent": "Anvay",
+    "agentRole": "Lead Qualification",
+    "trigger": "Deal Qualified",
+    "type": "CRM",
+    "status": "failed",
+    "time": "1h ago",
+    "details": "OAuth token expired · Retrying in 5m"
+  },
+  {
+    "id": "ACT-1090",
+    "name": "Create Stripe Customer & Invoice",
+    "agent": "Aarya",
+    "agentRole": "Customer Support",
+    "trigger": "Contract Signed",
+    "type": "Billing",
+    "status": "success",
+    "time": "2h ago",
+    "details": "Invoice #INV-2026-088 sent"
+  },
+  {
+    "id": "ACT-1089",
+    "name": "Post Hot Lead Summary to Slack",
+    "agent": "Medha",
+    "agentRole": "Lead Capture Specialist",
+    "trigger": "Hot Lead Score > 90",
+    "type": "Slack",
+    "status": "success",
+    "time": "3h ago",
+    "details": "Posted to #sales-enterprise"
+  },
+  {
+    "id": "ACT-1088",
+    "name": "Schedule Follow-up Call via Twilio",
+    "agent": "Vani",
+    "agentRole": "Voice Representative",
+    "trigger": "Voicemail Detected",
+    "type": "Telephony",
+    "status": "success",
+    "time": "5h ago",
+    "details": "Scheduled for tomorrow at 10:00 AM"
+  }
+]
