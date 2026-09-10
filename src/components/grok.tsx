@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { Check, Sparkle } from "./icons";
 import { createPortal } from "react-dom";
-import { Link } from "@tanstack/react-router";
+import { Link, useHydrated } from "@tanstack/react-router";
 import { motion, useSpring, useTransform } from "framer-motion";
 
 /* ============================================================
@@ -457,6 +457,7 @@ export function Loading({
   size?: "sm" | "md" | "lg";
   className?: string;
 }) {
+  const hydrated = useHydrated();
   const content = (
     <div className={`flex flex-col items-center justify-center text-center p-6 gap-3 fadeup ${className}`}>
       <div className="relative">
@@ -473,16 +474,18 @@ export function Loading({
     </div>
   );
 
-  if (fullScreen && typeof document !== "undefined") {
-    return createPortal(
+  if (fullScreen) {
+    const overlay = (
       <div
         className="fixed inset-0 z-[99999] flex items-center justify-center bg-[#ffffff]/80 backdrop-blur-md"
         style={{ backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)" }}
       >
         {content}
-      </div>,
-      document.body
+      </div>
     );
+    // Render inline on the server and during hydration; portal only after mount
+    // so the server and client trees match.
+    return hydrated ? createPortal(overlay, document.body) : overlay;
   }
 
   return content;
