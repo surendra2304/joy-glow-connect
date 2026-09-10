@@ -218,12 +218,36 @@ export default function Knowledge() {
   const sourceTabs = ["All", "Documents", "Website", "FAQs", "Policies"];
 
   const referenceSources = [
-    { name: "Refund Policy", detail: "Customer policy document", type: "Policy", updated: "Updated 2h ago", icon: RefreshCw },
-    { name: "Shipping Policy", detail: "Fulfillment guidelines", type: "Policy", updated: "Updated 1d ago", icon: PackageOpen },
-    { name: "Return Process SOP", detail: "Step-by-step workflow", type: "SOP", updated: "Updated 3d ago", icon: ArrowLeftRight },
-    { name: "Product Guide", detail: "Feature and plan details", type: "Document", updated: "Updated 4d ago", icon: BookOpen },
-    { name: "Help Center", detail: "Imported website content", type: "Website", updated: "Updated 1w ago", icon: HelpCircle },
+    { name: "Refund Policy", detail: "Customer policy document", type: "Policy", tab: "Policies", updated: "Updated 2h ago", icon: RefreshCw },
+    { name: "Shipping Policy", detail: "Fulfillment guidelines", type: "Policy", tab: "Policies", updated: "Updated 1d ago", icon: PackageOpen },
+    { name: "Return Process SOP", detail: "Step-by-step workflow", type: "SOP", tab: "SOPs", updated: "Updated 3d ago", icon: ArrowLeftRight },
+    { name: "Product Guide", detail: "Feature and plan details", type: "Document", tab: "Documents", updated: "Updated 4d ago", icon: BookOpen },
+    { name: "Help Center", detail: "Imported website content", type: "Website", tab: "Website", updated: "Updated 1w ago", icon: HelpCircle },
+    { name: "Onboarding FAQs", detail: "Common customer questions", type: "FAQ", tab: "FAQs", updated: "Updated 1w ago", icon: HelpCircle },
+    { name: "Escalation SOP", detail: "Tier-2 handover workflow", type: "SOP", tab: "SOPs", updated: "Updated 2w ago", icon: ArrowLeftRight },
+    { name: "Pricing Sheet", detail: "Plans and add-on pricing", type: "Document", tab: "Documents", updated: "Updated 3w ago", icon: FileText },
   ];
+
+  const visibleSources = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    const live = sources.map((s) => {
+      const t = s.type.toLowerCase();
+      const tab = t === "url" ? "Website" : t === "faq" ? "FAQs" : "Documents";
+      return {
+        name: s.name,
+        detail: s.status === "ready" ? `${s.chunkCount} chunks indexed` : s.status,
+        type: t === "url" ? "Website" : t === "faq" ? "FAQ" : s.type.toUpperCase(),
+        tab: s.name.toLowerCase().includes("policy") ? "Policies" : tab,
+        updated: formatUpdateDate(s.updatedAt),
+        icon: FileText,
+      };
+    });
+    return [...live, ...referenceSources].filter((item) => {
+      if (activeTab !== "All" && item.tab !== activeTab) return false;
+      if (!q) return true;
+      return item.name.toLowerCase().includes(q) || item.type.toLowerCase().includes(q);
+    });
+  }, [sources, activeTab, query]);
 
   const filteredSources = useMemo(() => {
     return sources.filter((s) => {
@@ -284,7 +308,12 @@ export default function Knowledge() {
               </div>
             </div>
             <div className="space-y-2.5">
-              {referenceSources.filter((item) => !query || item.name.toLowerCase().includes(query.toLowerCase())).map((item) => {
+              {visibleSources.length === 0 && (
+                <p className="rounded-2xl border border-dashed border-border px-4 py-10 text-center text-[12.5px] text-muted-foreground">
+                  No sources in this category yet.
+                </p>
+              )}
+              {visibleSources.map((item) => {
                 const Icon = item.icon;
                 return <div key={item.name} className="grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-2xl border border-border px-4 py-3.5 hover:bg-muted/30">
                   <span className="grid h-10 w-10 place-items-center rounded-full border border-border bg-card"><Icon className="h-4 w-4" /></span>

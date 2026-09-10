@@ -1,3 +1,4 @@
+import { CubeIcon } from "@/components/CubeIcon";
 import { useState, useRef, useEffect } from "react";
 import { useNavigate, Link } from "@tanstack/react-router";
 import {
@@ -12,7 +13,7 @@ import * as I from "../components/icons";
 import {
   FileText,
   Mic,
-  ArrowRight,
+
   Bot,
   Sparkles,
   Check,
@@ -423,7 +424,7 @@ export default function AgentStudio() {
 
                 <div className="w-full rounded-2xl border border-border bg-card p-4 shadow-xs focus-within:border-muted-foreground/50">
                   <textarea ref={textareaRef} value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={handleKeyDown} placeholder="Describe the employee you want to build..." rows={3} className="w-full resize-none border-none bg-transparent text-[14px] outline-none placeholder:text-muted-foreground" />
-                  <div className="flex items-center justify-between"><div className="flex gap-3 text-muted-foreground"><FileText className="h-4 w-4"/><Mic className="h-4 w-4"/></div><button onClick={() => handleSendPrompt(input)} disabled={!input.trim()} className="grid h-8 w-8 place-items-center rounded-full bg-muted text-muted-foreground disabled:opacity-60"><ArrowRight className="h-4 w-4"/></button></div>
+                  <div className="flex items-center justify-between"><div className="flex gap-3 text-muted-foreground"><FileText className="h-4 w-4"/><Mic className="h-4 w-4"/></div><button onClick={() => handleSendPrompt(input)} disabled={!input.trim()} className="grid h-8 w-8 place-items-center rounded-full bg-muted text-muted-foreground disabled:opacity-60"><CubeIcon className="h-4 w-4"/></button></div>
                 </div>
                 <p className="mb-7 mt-2 text-[11px] text-muted-foreground">AI Employees can make mistakes. Review generated workflows before deploying.</p>
                 <div className="w-full flex flex-col gap-3.5">
@@ -707,7 +708,7 @@ export default function AgentStudio() {
                       }`}
                       title="Send message"
                     >
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <CubeIcon className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </div>

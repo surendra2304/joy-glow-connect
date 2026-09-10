@@ -1,3 +1,4 @@
+import { CubeIcon } from "@/components/CubeIcon";
 import { useState, useMemo } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import {
@@ -22,7 +23,7 @@ import {
 } from "../components/ui/dialog";
 import { AgentAvatar } from "../components/ui/agent-avatar";
 import {
-  ArrowRight,
+
   Search,
   Sparkles,
   X,
@@ -200,9 +201,9 @@ export default function Templates() {
         </div>
 
         {/* Header Action Buttons & Search */}
-        <div className="flex items-center gap-2.5 flex-wrap">
+        <div className="flex items-center gap-2.5 flex-wrap lg:flex-nowrap">
           {/* Search Input */}
-          <div className="relative min-w-[220px] sm:w-68">
+          <div className="relative min-w-[200px] sm:w-60">
             <Input
               type="text"
               placeholder="Search agents, skills, tools..."
@@ -222,16 +223,6 @@ export default function Templates() {
             )}
           </div>
 
-          {/* Publish Agent to Marketplace Button */}
-          <Button
-            onClick={() => setIsPublishOpen(true)}
-            variant="default"
-            className="rounded-full px-4 py-2 text-[13px] shadow-xs cursor-pointer gap-1.5"
-          >
-            <Upload className="w-3.5 h-3.5" />
-            <span>Publish Agent</span>
-          </Button>
-
           {/* Agent Studio Link */}
           <Button
             onClick={() => navigate({ to: "/app/studio" })}
@@ -240,6 +231,16 @@ export default function Templates() {
           >
             <Sparkles className="w-3.5 h-3.5 text-[#64748B]" />
             <span className="hidden sm:inline">Studio</span>
+          </Button>
+
+          {/* Publish Agent to Marketplace Button */}
+          <Button
+            onClick={() => setIsPublishOpen(true)}
+            variant="default"
+            className="rounded-full px-4 py-2 text-[13px] shadow-xs cursor-pointer gap-1.5"
+          >
+            <Upload className="w-3.5 h-3.5" />
+            <span>Publish Agent</span>
           </Button>
         </div>
       </div>
@@ -277,7 +278,7 @@ export default function Templates() {
 
               {/* Key Capabilities */}
               <div className="flex flex-wrap gap-2 pt-1">
-                <Button onClick={() => document.getElementById("marketplace-grid")?.scrollIntoView({ behavior: "smooth" })} className="rounded-full border border-background/45 bg-background/10 text-background hover:bg-background/20">Browse AI Employees <ArrowRight className="h-3.5 w-3.5" /></Button>
+                <Button onClick={() => document.getElementById("marketplace-grid")?.scrollIntoView({ behavior: "smooth" })} className="rounded-full border border-background/45 bg-background/10 text-background hover:bg-background/20">Browse AI Employees <CubeIcon className="h-3.5 w-3.5" /></Button>
                 <Button onClick={() => navigate({ to: "/app/studio" })} className="rounded-full border border-background/45 bg-background/10 text-background hover:bg-background/20"><Play className="h-3.5 w-3.5" /> How it works</Button>
               </div>
             </div>
@@ -545,7 +546,7 @@ export default function Templates() {
                       className="rounded-full px-3 py-1 text-[12px] font-bold text-white bg-[#09090B] hover:bg-black cursor-pointer h-7 gap-1"
                     >
                       <span>Get Agent</span>
-                      <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
+                      <CubeIcon className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
                     </Button>
                   </div>
                 </div>

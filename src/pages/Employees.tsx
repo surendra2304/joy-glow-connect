@@ -1,3 +1,4 @@
+import { CubeIcon } from "@/components/CubeIcon";
 import { useEffect, useState, useMemo } from "react";
 import { useNavigate, Navigate } from "@tanstack/react-router";
 import { GSpinner, GEmptyState } from "../components/grok";
@@ -9,7 +10,7 @@ import { renderConnectorIcon } from "../components/renderConnectorIcon";
 import { CreateAgentModal } from "../components/CreateAgentModal";
 import { Badge } from "../components/ui/badge";
 import { AgentAvatar } from "../components/ui/agent-avatar";
-import { ArrowRight, Bot, Search, Plus, Sparkles, X } from "lucide-react";
+import { Bot, Search, Plus, Sparkles, X } from "lucide-react";
 
 export function AgentsNew() {
   return <Navigate to="/app/templates" replace />;
@@ -216,7 +217,7 @@ export function Employees() {
 
                   <span className="text-[13px] font-semibold text-[#09090B] group-hover:text-black flex items-center gap-1 transition-all">
                     <span>Operations Desk</span>
-                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                    <CubeIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
                   </span>
                 </div>
               </div>
