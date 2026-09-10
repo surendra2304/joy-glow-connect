@@ -3,7 +3,6 @@ import { useAuth } from "../lib/auth";
 import * as I from "./icons";
 import type { ReactNode } from "react";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { CreateAgentModal } from "./CreateAgentModal";
 
 function Item({ to, icon, label, badge }: { to: string; icon: ReactNode; label: string; badge?: string }) {
