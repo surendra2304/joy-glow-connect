@@ -92,19 +92,19 @@ export default function Connectors() {
   };
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto pb-20 animate-fadein">
+    <div className="space-y-4 max-w-none mx-auto pb-20 animate-fadein min-h-[calc(100vh-2.5rem)]">
       {/* ─── Page Title (Exact kaliganai.com Standard) ──────────────────── */}
       <div>
-        <h1 className="text-3xl sm:text-4xl font-bold text-[#09090B] tracking-tight">
+        <h1 className="text-xl font-bold text-[#09090B] tracking-tight">
           Integration Directory.
         </h1>
-        <p className="text-[14px] text-[#64748B] mt-1.5 font-normal max-w-2xl">
+        <p className="text-[11.5px] text-[#64748B] mt-1 font-normal max-w-2xl">
           Connect your AI employees to customer, project, billing, and communication tools.
         </p>
       </div>
 
       {/* ─── Seamless Container (Exact kaliganai.com/features/integrations) ─ */}
-      <div className="rounded-[32px] border border-[#E5E7EB] bg-white p-6 sm:p-8 space-y-6 shadow-xs">
+      <div className="rounded-2xl border border-[#E5E7EB] bg-white p-5 space-y-4 shadow-xs">
         {/* Full-Width Search Input */}
         <div className="relative">
           <input
@@ -161,14 +161,14 @@ export default function Connectors() {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 pt-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 pt-1">
             {filteredConnectors.map((connector) => {
               const isConnected = connector.status === "connected";
 
               return (
                 <div
                   key={connector.id}
-                  className="group rounded-3xl bg-white border border-[#E5E7EB] p-6 hover:border-[#CBD5E1] hover:shadow-[0_10px_30px_-6px_rgba(0,0,0,0.05)] hover:-translate-y-0.5 transition-all flex flex-col justify-between min-h-[220px] shadow-[0_1px_3px_rgba(0,0,0,0.02)]"
+                  className="group rounded-2xl bg-white border border-[#E5E7EB] p-4 hover:border-[#CBD5E1] hover:shadow-[0_10px_30px_-6px_rgba(0,0,0,0.05)] hover:-translate-y-0.5 transition-all flex flex-col justify-between min-h-[180px] shadow-[0_1px_3px_rgba(0,0,0,0.02)]"
                 >
                   <div>
                     {/* Brand Logo & Connection Status */}

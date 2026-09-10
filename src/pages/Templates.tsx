@@ -175,9 +175,9 @@ export default function Templates() {
   const channelOptions = ["All", "Chat", "Voice", "Hybrid"];
 
   return (
-    <div className="space-y-7 max-w-7xl mx-auto pb-20 animate-fadein">
+    <div className="space-y-4 max-w-none mx-auto pb-20 animate-fadein min-h-[calc(100vh-2.5rem)]">
       {/* ─── 1. TOP MARKETPLACE HEADER ────────────────────────────────────── */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-[#E5E7EB]">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#E5E7EB]">
         <div>
           <div className="flex items-center gap-2.5 flex-wrap">
             <h1 className="text-2xl font-bold text-[#09090B] tracking-tight">
@@ -246,9 +246,9 @@ export default function Templates() {
 
       {/* ─── 2. FEATURED SPOTLIGHT HERO BANNER ────────────────────────────── */}
       {!searchQuery && selectedCategory === "All" && selectedChannel === "All" && (
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#09090B] via-[#18181B] to-[#27272A] text-white p-7 sm:p-8 shadow-md border border-slate-800">
+        <div className="marketplace-hero relative overflow-hidden rounded-2xl text-white p-6 shadow-md border border-slate-800 min-h-[190px]">
           {/* Subtle decorative background blur */}
-          <div className="absolute top-0 right-0 -mt-8 -mr-8 w-72 h-72 bg-gradient-to-br from-blue-500/15 via-purple-500/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute inset-0 marketplace-hero-grid pointer-events-none" />
 
           <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="space-y-3 max-w-2xl">
@@ -469,7 +469,7 @@ export default function Templates() {
           </Button>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pt-1">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3.5 pt-1">
           {filteredTemplates.map((tpl: EmployeeTemplate) => {
             const isHybrid = tpl.channel === "hybrid";
             const isVoice = tpl.channel === "voice";
@@ -478,7 +478,7 @@ export default function Templates() {
             return (
               <Card
                 key={tpl.id}
-                className="group rounded-3xl bg-white border border-[#E5E7EB] p-6 hover:border-[#CBD5E1] hover:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-all flex flex-col justify-between min-h-[250px] shadow-[0_1px_3px_rgba(0,0,0,0.02)] space-y-4"
+                className="group rounded-2xl bg-white border border-[#E5E7EB] p-4 hover:border-[#CBD5E1] hover:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-all flex flex-col justify-between min-h-[228px] shadow-[0_1px_3px_rgba(0,0,0,0.02)] space-y-3"
               >
                 <div>
                   {/* Card Header: Avatar, Name, Publisher & Status */}

@@ -49,15 +49,14 @@ export default function Docs() {
   ];
 
   return (
-    <div className="flex flex-col gap-6 max-w-6xl mx-auto">
+    <div className="flex flex-col gap-4 max-w-none mx-auto min-h-[calc(100vh-2.5rem)]">
       <GPageHeader
-        eyebrow="Infrastructure"
         title="Documentation"
         description="Learn how to install, configure and customize your AI employees in minutes."
       />
 
-      <div className="flex flex-col md:flex-row gap-7 items-start">
-        <aside className="w-full md:w-[240px] shrink-0 g-card p-3 flex flex-row md:flex-col gap-0.5 select-none flex-wrap">
+      <div className="flex flex-col md:flex-row gap-8 items-start max-w-[840px]">
+        <aside className="w-full md:w-[196px] shrink-0 g-card p-2.5 flex flex-row md:flex-col gap-0.5 select-none flex-wrap">
           <span className="g-label-xs px-2.5 pb-2 pt-1 hidden md:block">Guides & setup</span>
           {navItems.map((it) => (
             <button
@@ -75,7 +74,7 @@ export default function Docs() {
           {activeTab === "widget" && (
             <GSectionCard>
               <div className="p-6">
-                <h2 className="g-serif text-[22px] mb-1">Widget installation code</h2>
+                <h2 className="text-[18px] font-bold mb-1">Widget installation code</h2>
                 <p className="text-[13px] leading-relaxed mb-5" style={{ color: "var(--g-muted-foreground)" }}>
                   Get your AI live on your website in under 5 minutes. Copy the code below and insert it into your site pages.
                 </p>
@@ -207,7 +206,7 @@ export default function RootLayout() {
           {activeTab === "knowledge" && (
             <GSectionCard>
               <div className="p-6">
-                <h2 className="g-serif text-[22px] mb-1">Grounding & knowledge base</h2>
+                <h2 className="text-[18px] font-bold mb-1">Grounding &amp; Knowledge Base</h2>
                 <p className="text-[13px] leading-relaxed mb-5" style={{ color: "var(--g-muted-foreground)" }}>
                   How your AI employee acquires knowledge and answers factually without hallucinating.
                 </p>
@@ -241,7 +240,7 @@ export default function RootLayout() {
           {activeTab === "chat" && (
             <GSectionCard>
               <div className="p-6">
-                <h2 className="g-serif text-[22px] mb-1">Chat employee & lead capture</h2>
+                <h2 className="text-[18px] font-bold mb-1">Chat employee &amp; lead capture</h2>
                 <p className="text-[13px] leading-relaxed mb-5" style={{ color: "var(--g-muted-foreground)" }}>
                   Configure identity, capture rules and conversion criteria.
                 </p>
@@ -275,7 +274,7 @@ export default function RootLayout() {
           {activeTab === "voice" && (
             <GSectionCard>
               <div className="p-6">
-                <h2 className="g-serif text-[22px] mb-1">Connecting your Twilio number (BYON)</h2>
+                <h2 className="text-[18px] font-bold mb-1">Connecting your Twilio number (BYON)</h2>
                 <p className="text-[13px] leading-relaxed mb-5" style={{ color: "var(--g-muted-foreground)" }}>
                   Connect your own Twilio phone numbers so the same grounded employee answers calls.
                 </p>

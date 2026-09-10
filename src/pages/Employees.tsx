@@ -56,22 +56,22 @@ export function Employees() {
   if (loading && agents.length === 0) return <GSpinner />;
 
   return (
-    <div className="max-w-7xl mx-auto space-y-6 animate-fadein pb-16">
+    <div className="max-w-none mx-auto space-y-4 animate-fadein pb-16 min-h-[calc(100vh-2.5rem)]">
       {/* Create Agent Modal */}
       <CreateAgentModal isOpen={showCreateModal} onClose={() => setShowCreateModal(false)} />
 
       {/* Clean Unified Header with Search & CTAs */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-[#E5E7EB]">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#E5E7EB]">
         <div>
           <div className="flex items-center gap-2.5">
-            <h1 className="text-2xl font-bold text-[#09090B] tracking-tight">
+            <h1 className="text-xl font-bold text-[#09090B] tracking-tight">
               AI Employees
             </h1>
             <Badge variant="secondary" className="font-semibold text-xs rounded-full px-2.5 bg-[#F4F5F6] text-[#09090B] border border-[#E5E7EB]">
               {agents.length} active
             </Badge>
           </div>
-          <p className="text-[13.5px] text-[#64748B] mt-1 font-normal">
+          <p className="text-[11.5px] text-[#64748B] mt-1 font-normal">
             Autonomous enterprise workforce executing workflows across Chat, Voice, and CRM tools.
           </p>
         </div>
@@ -127,7 +127,7 @@ export function Employees() {
           }
         />
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3.5 max-w-[960px]">
           {filteredAgents.map((agent) => {
             const isVoice = agent.kind === "voice";
             const isHybrid = (agent.kind as string) === "hybrid" || (agent.kind as string) === "omnichannel";
@@ -147,7 +147,7 @@ export function Employees() {
               <div
                 key={agent.id}
                 onClick={() => navigate({ to: `/app/agents/${agent.id}` })}
-                className="group rounded-3xl bg-white border border-[#E5E7EB] p-6 hover:border-[#CBD5E1] hover:shadow-[0_10px_30px_-6px_rgba(0,0,0,0.05)] hover:-translate-y-0.5 transition-all flex flex-col justify-between min-h-[220px] cursor-pointer shadow-[0_1px_3px_rgba(0,0,0,0.02)] space-y-4"
+                className="group rounded-2xl bg-white border border-[#E5E7EB] p-4 hover:border-[#CBD5E1] hover:shadow-[0_10px_30px_-6px_rgba(0,0,0,0.05)] hover:-translate-y-0.5 transition-all flex flex-col justify-between min-h-[188px] cursor-pointer shadow-[0_1px_3px_rgba(0,0,0,0.02)] space-y-3"
               >
                 <div>
                   {/* Card Header Top */}
