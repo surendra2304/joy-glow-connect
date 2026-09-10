@@ -122,17 +122,7 @@ export default function AppShell() {
 
       {/* Main Full-Height Content Area */}
       <main className="app-workspace-canvas px-4 py-5 pb-16 md:px-6 md:py-6 min-w-0 overflow-y-auto min-h-screen md:max-h-screen">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={location.pathname}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.12 }}
-          >
-            <Outlet />
-          </motion.div>
-        </AnimatePresence>
+        <Outlet />
       </main>
     </div>
   );
