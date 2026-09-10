@@ -162,7 +162,7 @@
     background: var(--foreground, #141414);
     color: var(--background, #FAFAFA);
     padding: 0.85rem 1.6rem;
-    font-family: "Schibsted Grotesk", ui-sans-serif, system-ui, sans-serif;
+    font-family: "Inter", system-ui, sans-serif;
     font-size: 0.9375rem;
     font-weight: 500;
     letter-spacing: -0.005em;
@@ -198,7 +198,7 @@
     background: var(--g-surface, #FFFFFF);
     color: var(--g-foreground, #171717);
     padding: 0.85rem 1.6rem;
-    font-family: "Hanken Grotesk", system-ui, sans-serif;
+    font-family: "Inter", system-ui, sans-serif;
     font-size: 0.9375rem;
     font-weight: 600;
     letter-spacing: -0.005em;
@@ -274,7 +274,7 @@
     background: var(--background, #FAFAFA);
     color: var(--foreground, #141414);
     padding: 0.85rem 1.6rem;
-    font-family: "Schibsted Grotesk", ui-sans-serif, system-ui, sans-serif;
+    font-family: "Inter", system-ui, sans-serif;
     font-size: 0.9375rem;
     font-weight: 500;
     line-height: 1;
