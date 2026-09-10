@@ -223,16 +223,6 @@ export default function Templates() {
             )}
           </div>
 
-          {/* Publish Agent to Marketplace Button */}
-          <Button
-            onClick={() => setIsPublishOpen(true)}
-            variant="default"
-            className="rounded-full px-4 py-2 text-[13px] shadow-xs cursor-pointer gap-1.5"
-          >
-            <Upload className="w-3.5 h-3.5" />
-            <span>Publish Agent</span>
-          </Button>
-
           {/* Agent Studio Link */}
           <Button
             onClick={() => navigate({ to: "/app/studio" })}
@@ -241,6 +231,16 @@ export default function Templates() {
           >
             <Sparkles className="w-3.5 h-3.5 text-[#64748B]" />
             <span className="hidden sm:inline">Studio</span>
+          </Button>
+
+          {/* Publish Agent to Marketplace Button */}
+          <Button
+            onClick={() => setIsPublishOpen(true)}
+            variant="default"
+            className="rounded-full px-4 py-2 text-[13px] shadow-xs cursor-pointer gap-1.5"
+          >
+            <Upload className="w-3.5 h-3.5" />
+            <span>Publish Agent</span>
           </Button>
         </div>
       </div>
