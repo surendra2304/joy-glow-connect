@@ -177,10 +177,10 @@ export default function Templates() {
   return (
     <div className="space-y-4 max-w-none mx-auto pb-20 animate-fadein min-h-[calc(100vh-2.5rem)]">
       {/* ─── 1. TOP MARKETPLACE HEADER ────────────────────────────────────── */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#E5E7EB]">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-border">
         <div>
           <div className="flex items-center gap-2.5 flex-wrap">
-            <h1 className="text-2xl font-bold text-[#09090B] tracking-tight">
+            <h1 className="text-xl font-bold text-foreground tracking-tight">
               Agent Marketplace
             </h1>
             <Badge
@@ -189,12 +189,12 @@ export default function Templates() {
             >
               {filteredTemplates.length} Verified
             </Badge>
-            <span className="inline-flex items-center gap-1 text-[11.5px] font-semibold text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/70">
+            <span className="inline-flex items-center gap-1 text-[10.5px] font-semibold text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/70">
               <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
               Official KaliGan Core
             </span>
           </div>
-          <p className="text-[13.5px] text-[#64748B] mt-1 font-normal max-w-2xl">
+          <p className="text-[11.5px] text-muted-foreground mt-1 font-normal max-w-xl">
             Discover, test, and deploy verified AI agents for autonomous enterprise workflows across Voice, Chat, and CRM systems.
           </p>
         </div>
@@ -246,92 +246,48 @@ export default function Templates() {
 
       {/* ─── 2. FEATURED SPOTLIGHT HERO BANNER ────────────────────────────── */}
       {!searchQuery && selectedCategory === "All" && selectedChannel === "All" && (
-        <div className="marketplace-hero relative overflow-hidden rounded-2xl text-white p-6 shadow-md border border-slate-800 min-h-[190px]">
+          <div className="marketplace-hero relative overflow-hidden rounded-[20px] text-background p-8 shadow-md border border-foreground/20 min-h-[290px]">
           {/* Subtle decorative background blur */}
           <div className="absolute inset-0 marketplace-hero-grid pointer-events-none" />
 
-          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-            <div className="space-y-3 max-w-2xl">
+            <div className="relative z-10 flex h-full flex-col lg:flex-row lg:items-center justify-between gap-8">
+            <div className="space-y-4 max-w-xl py-1">
               {/* Spotlight Badges */}
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-amber-300 bg-amber-400/10 border border-amber-400/20 px-2.5 py-0.5 rounded-full">
                   <Sparkles className="w-3 h-3 text-amber-400" />
-                  Staff Pick • Featured Agent
-                </span>
-                <span className="inline-flex items-center gap-1 text-[11.5px] font-medium text-slate-300 bg-white/10 px-2.5 py-0.5 rounded-full border border-white/10">
-                  <CheckCircle2 className="w-3 h-3 text-emerald-400" />
-                  By {activeSpotlight.publisher || "KaliGan AI"} (Official)
-                </span>
-                <span className="text-[11px] font-semibold text-slate-300 px-2.5 py-0.5 rounded-full bg-white/10">
-                  {activeSpotlight.channel === "hybrid" ? "Hybrid V2" : activeSpotlight.channel === "voice" ? "Voice AI" : "Chat AI"}
+                  Build a smarter workforce
                 </span>
               </div>
 
               {/* Title & Role */}
               <div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
-                  {activeSpotlight.name}
+                <h2 className="text-3xl sm:text-[40px] leading-none font-bold tracking-tight text-background">
+                  AI Employee Marketplace
                 </h2>
-                <p className="text-sm font-medium text-slate-300 mt-0.5">
-                  {activeSpotlight.role} • {activeSpotlight.category}
+                <p className="text-[15px] font-medium text-background/80 mt-2">
+                  Discover AI Employees Built for Real Work
                 </p>
               </div>
 
               {/* Outcome Proposition */}
-              <p className="text-[13.5px] text-slate-300 leading-relaxed max-w-xl">
-                {activeSpotlight.description}
+              <p className="text-[14px] text-background/75 leading-relaxed max-w-lg">
+                Explore, compare, and deploy AI Employees for sales, customer support, operations, and everyday business workflows.
               </p>
 
               {/* Key Capabilities */}
-              <div className="flex flex-wrap gap-1.5 pt-1">
-                {activeSpotlight.capabilities.slice(0, 4).map((cap, i) => (
-                  <span
-                    key={i}
-                    className="text-[11.5px] font-medium px-2.5 py-0.5 rounded-full bg-white/10 text-slate-200 border border-white/10"
-                  >
-                    ✓ {cap}
-                  </span>
-                ))}
+              <div className="flex flex-wrap gap-2 pt-1">
+                <Button onClick={() => document.getElementById("marketplace-grid")?.scrollIntoView({ behavior: "smooth" })} className="rounded-full border border-background/45 bg-background/10 text-background hover:bg-background/20">Browse AI Employees <ArrowRight className="h-3.5 w-3.5" /></Button>
+                <Button onClick={() => navigate({ to: "/app/studio" })} className="rounded-full border border-background/45 bg-background/10 text-background hover:bg-background/20"><Play className="h-3.5 w-3.5" /> How it works</Button>
               </div>
             </div>
 
             {/* Spotlight CTA & Switcher */}
-            <div className="flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-end justify-between gap-4 shrink-0">
-              <div className="flex items-center gap-2.5">
-                <Button
-                  onClick={() => navigate({ to: `/app/templates/${activeSpotlight.id}?mode=demo` })}
-                  variant="secondary"
-                  className="rounded-full bg-white/15 hover:bg-white/25 text-white border-white/20 text-[13px] px-4.5 py-2 cursor-pointer shadow-xs gap-1.5"
-                >
-                  <Play className="w-3.5 h-3.5 fill-current text-white" />
-                  <span>Try Sandbox</span>
-                </Button>
-
-                <Button
-                  onClick={() => navigate({ to: `/app/templates/${activeSpotlight.id}` })}
-                  className="rounded-full bg-white hover:bg-slate-100 text-[#09090B] font-bold text-[13px] px-5 py-2 cursor-pointer shadow-md gap-1.5 active:scale-[0.98]"
-                >
-                  <span>Get Agent</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Button>
+            <div className="relative hidden h-[220px] w-[360px] shrink-0 lg:block" aria-hidden="true">
+              <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rotate-[32deg] border-2 border-background/90">
+                <div className="absolute inset-4 border border-background/60" />
               </div>
-
-              {/* Spotlight Carousel Dot Switcher */}
-              <div className="flex items-center gap-1.5 pt-2">
-                <span className="text-[11px] font-medium text-slate-400 mr-1">Spotlight:</span>
-                {spotlightAgents.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setSpotlightIndex(idx)}
-                    className={`h-2 rounded-full transition-all cursor-pointer ${
-                      spotlightIndex === idx
-                        ? "w-6 bg-white"
-                        : "w-2 bg-white/30 hover:bg-white/60"
-                    }`}
-                    title={`Switch to spotlight agent ${idx + 1}`}
-                  />
-                ))}
-              </div>
+              {[['Sales','top-1 left-3'],['Customer Support','top-7 right-0'],['Operations','top-[94px] left-0'],['Voice','top-[112px] right-2'],['Productivity','bottom-0 left-28']].map(([label,pos]) => <span key={label} className={`absolute ${pos} rounded-full border border-background/50 bg-background/5 px-5 py-2 text-xs text-background/90`}>{label}</span>)}
             </div>
           </div>
         </div>
@@ -469,7 +425,7 @@ export default function Templates() {
           </Button>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3.5 pt-1">
+        <div id="marketplace-grid" className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3.5 pt-1">
           {filteredTemplates.map((tpl: EmployeeTemplate) => {
             const isHybrid = tpl.channel === "hybrid";
             const isVoice = tpl.channel === "voice";

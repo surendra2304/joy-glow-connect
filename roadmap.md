@@ -1,0 +1,6 @@
+- [x] Audit every supplied reference screen against the live preview
+- [x] Rebuild shared shell and global visual system to match references
+- [x] Align AI Employees and Create AI Employee dialog
+- [x] Align Marketplace and Employee Studio
+- [x] Align Knowledge, Integrations, Phone Numbers, Analytics, and Documentation
+- [x] Verify desktop/mobile visuals, interactions, metadata, and build health

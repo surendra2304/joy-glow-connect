@@ -130,7 +130,7 @@ export function Numbers() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-xl font-bold text-[#09090B] tracking-tight">
-            Phone Numbers.
+            Phone Numbers
           </h1>
           <p className="text-[11.5px] text-[#64748B] mt-1 font-normal max-w-2xl">
             Provision virtual phone lines, configure telephony trunks, and route inbound phone calls to Voice AI Employees.
@@ -147,7 +147,7 @@ export function Numbers() {
       </div>
 
       {/* ─── Telephony KPI Cards ────────────────────────────────────────── */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
         <div className="rounded-2xl bg-white border border-[#E5E7EB] p-5 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-[12px] font-medium text-[#64748B]">Active Lines</span>
@@ -203,7 +203,7 @@ export function Numbers() {
       </div>
 
       {/* ─── Seamless Container (Exact kaliganai.com Standard) ───────────── */}
-      <div className="rounded-2xl border border-[#E5E7EB] bg-white p-5 space-y-4 shadow-xs">
+      <div className="rounded-[28px] border border-border bg-card p-7 space-y-5 shadow-[0_18px_45px_-38px_rgba(15,23,42,.5)]">
         {/* Full-Width Search Bar */}
         <div className="relative">
           <input

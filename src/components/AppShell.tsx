@@ -51,7 +51,7 @@ export default function AppShell() {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[228px_minmax(0,1fr)] min-h-screen bg-background text-foreground">
+    <div className="grid grid-cols-1 md:grid-cols-[240px_minmax(0,1fr)] min-h-screen bg-background text-foreground">
       {/* Create Agent Modal */}
       <CreateAgentModal isOpen={showCreateModal} onClose={() => setShowCreateModal(false)} />
 
@@ -59,7 +59,7 @@ export default function AppShell() {
       <aside className="hidden md:flex flex-col sticky top-0 h-screen overflow-hidden border-r border-border bg-sidebar">
         
         {/* Brand Header */}
-        <div className="shrink-0 px-3.5 pt-4 pb-3 border-b border-border/80">
+        <div className="shrink-0 px-5 pt-6 pb-4">
           <Link to="/app" className="flex items-center gap-2.5 px-2 py-1.5 group">
             <I.Logo className="w-7 h-7 shrink-0 text-[#09090B]" />
             <span className="leading-tight">
@@ -70,10 +70,10 @@ export default function AppShell() {
         </div>
 
         {/* Quick Action Button */}
-        <div className="px-3.5 pt-3.5 pb-1.5">
+        <div className="px-3 pt-2 pb-4">
           <button
             onClick={() => setShowCreateModal(true)}
-            className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#09090B] text-white py-2.5 text-[13px] font-semibold hover:bg-black transition-all shadow-[0_2px_8px_rgba(0,0,0,0.12)] hover:shadow-[0_4px_14px_rgba(0,0,0,0.18)] cursor-pointer active:scale-[0.98]"
+            className="w-full flex items-center justify-center gap-2 rounded-full bg-foreground text-background h-10 text-[13px] font-semibold transition-opacity hover:opacity-90 cursor-pointer active:scale-[0.98]"
           >
             <I.Plus width={13} height={13} />
             <span>Create AI Employee</span>
@@ -81,7 +81,7 @@ export default function AppShell() {
         </div>
 
         {/* Navigation Groups */}
-        <nav className="flex-1 overflow-y-auto px-3 py-2.5 g-no-scrollbar space-y-1">
+        <nav className="flex-1 overflow-y-auto px-3 py-0 g-no-scrollbar space-y-1">
           <Group label="Workforce">
             <Item to="/app/agents" icon={<I.Bot width={15} height={15} />} label="AI Employees" />
             <Item to="/app/templates" icon={<I.Grid width={15} height={15} />} label="Marketplace" badge="48" />
@@ -99,7 +99,7 @@ export default function AppShell() {
         </nav>
 
         {/* Footer: User / Settings & Log out */}
-        <div className="shrink-0 px-3.5 pt-3 pb-4 border-t border-[#E5E7EB]/80 bg-[#F8F9FA]">
+        <div className="shrink-0 px-3 pt-4 pb-5 border-t border-border/80 bg-sidebar">
           {/* User info pill */}
           {user?.email && (
             <div className="px-3 py-1.5 mb-1.5 rounded-lg bg-white/70 border border-[#E5E7EB]/60 flex items-center gap-2">
@@ -121,7 +121,7 @@ export default function AppShell() {
       </aside>
 
       {/* Main Full-Height Content Area */}
-      <main className="app-workspace-canvas px-4 py-5 pb-16 min-w-0 overflow-y-auto min-h-screen md:max-h-screen">
+      <main className="app-workspace-canvas px-4 py-5 pb-16 md:px-6 md:py-6 min-w-0 overflow-y-auto min-h-screen md:max-h-screen">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}

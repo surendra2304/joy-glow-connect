@@ -14,7 +14,6 @@ import {
   Mic,
   ArrowRight,
   Bot,
-  Moon,
   Sparkles,
   Check,
   Send,
@@ -73,7 +72,6 @@ export default function AgentStudio() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [isDeploying, setIsDeploying] = useState(false);
   const [deploySuccess, setDeploySuccess] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
 
   // Sandbox testing inside active session
   const [sandboxInput, setSandboxInput] = useState("");
@@ -323,19 +321,19 @@ export default function AgentStudio() {
   };
 
   return (
-    <div className={`h-screen w-full flex flex-col overflow-hidden bg-white text-zinc-900 select-text ${isDarkMode ? "dark" : ""}`}>
+    <div className="h-screen w-full flex flex-col overflow-hidden bg-background text-foreground select-text">
       {/* ─────────────────────────────────────────────────────────────
           1. TOP HEADER (Exact match to reference screenshot)
           KaliGanAI  |  Employee Studio               + New Chat   ← Exit Studio
       ───────────────────────────────────────────────────────────── */}
-      <header className="h-[56px] border-b border-zinc-200/80 bg-white px-3 sm:px-6 flex items-center justify-between shrink-0 z-20">
+      <header className="h-[76px] border-b border-border bg-card px-4 sm:px-7 flex items-center justify-between shrink-0 z-20">
         <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           <Link to="/app" className="flex items-center gap-2.5 group">
-            <I.Logo className="w-5 h-5 text-zinc-900 shrink-0" />
-            <span className="text-[14px] font-bold tracking-tight text-zinc-900">KaliGanAI</span>
+            <I.Logo className="w-6 h-6 text-foreground shrink-0" />
+            <span className="text-[14px] font-bold tracking-tight text-foreground">KaliGanAI</span>
           </Link>
-           <span className="hidden sm:inline text-zinc-300 font-light text-[15px] select-none">|</span>
-           <span className="hidden sm:inline text-[13.5px] font-medium text-zinc-800">Employee Studio</span>
+           <span className="hidden sm:inline text-border font-light text-[15px] select-none">|</span>
+            <span className="hidden sm:inline text-[13.5px] font-medium text-foreground">Employee Studio</span>
         </div>
 
         <div className="flex items-center gap-1.5 sm:gap-2.5">
@@ -361,11 +359,11 @@ export default function AgentStudio() {
       ───────────────────────────────────────────────────────────── */}
       <div className="flex-1 flex min-h-0 overflow-hidden relative">
         {/* LEFT SIDEBAR (Exact match: + New Employee button, TODAY, YESTERDAY, PREVIOUS 7 DAYS) */}
-        <aside className="w-[250px] shrink-0 border-r border-zinc-100 bg-white hidden md:flex flex-col p-4 overflow-y-auto">
+        <aside className="w-[260px] shrink-0 border-r border-border bg-card hidden md:flex flex-col p-4 overflow-y-auto">
           {/* + New Employee Button */}
           <button
             onClick={handleNewEmployee}
-            className="w-full rounded-xl bg-[#f4f4f5] hover:bg-[#e4e4e7] text-zinc-900 text-[13px] font-medium px-4 py-2.5 flex items-center gap-2 transition-colors cursor-pointer mb-5"
+            className="w-full rounded-full bg-foreground text-background text-[13px] font-medium px-4 py-3 flex items-center gap-2 transition-opacity hover:opacity-90 cursor-pointer mb-6"
           >
             <I.Plus width={14} height={14} className="text-zinc-700" />
             <span>New Employee</span>
@@ -405,7 +403,7 @@ export default function AgentStudio() {
         {/* CENTER MAIN CANVAS */}
         <div className="studio-canvas flex-1 flex flex-col min-w-0 relative overflow-hidden">
           {/* Main Content Area */}
-          <div className="flex-1 overflow-y-auto w-full flex flex-col items-center justify-center p-4 sm:p-6">
+          <div className="flex-1 overflow-y-auto w-full flex flex-col items-center p-4 sm:p-6">
             {!activeSession ? (
               /* ─────────────────────────────────────────────────────────────
                   EMPTY / INITIAL STATE (Exact match to reference screenshot)
@@ -415,21 +413,25 @@ export default function AgentStudio() {
                   [ Card 2 ]
                   [ Card 3 ]
               ───────────────────────────────────────────────────────────── */
-              <div className="w-full max-w-[660px] flex flex-col items-center justify-center my-auto py-8">
-                <h1 className="text-[28px] sm:text-[36px] font-semibold text-zinc-900 tracking-tight text-center">
+              <div className="w-full max-w-[680px] flex flex-col items-center pt-[12vh] pb-8">
+                <h1 className="text-[30px] sm:text-[36px] font-semibold text-foreground tracking-tight text-center">
                   Build an AI Employee
                 </h1>
-                <p className="text-[14.5px] text-zinc-500 text-center mt-2 mb-10">
+                <p className="text-[14.5px] text-muted-foreground text-center mt-2 mb-8">
                   Describe what you want your AI employee to do.
                 </p>
 
-                {/* 3 Large Prompt Cards */}
+                <div className="w-full rounded-2xl border border-border bg-card p-4 shadow-xs focus-within:border-muted-foreground/50">
+                  <textarea ref={textareaRef} value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={handleKeyDown} placeholder="Describe the employee you want to build..." rows={3} className="w-full resize-none border-none bg-transparent text-[14px] outline-none placeholder:text-muted-foreground" />
+                  <div className="flex items-center justify-between"><div className="flex gap-3 text-muted-foreground"><FileText className="h-4 w-4"/><Mic className="h-4 w-4"/></div><button onClick={() => handleSendPrompt(input)} disabled={!input.trim()} className="grid h-8 w-8 place-items-center rounded-full bg-muted text-muted-foreground disabled:opacity-60"><ArrowRight className="h-4 w-4"/></button></div>
+                </div>
+                <p className="mb-7 mt-2 text-[11px] text-muted-foreground">AI Employees can make mistakes. Review generated workflows before deploying.</p>
                 <div className="w-full flex flex-col gap-3.5">
                   {STUDIO_HERO_PROMPT_CARDS.map((promptText, idx) => (
                     <button
                       key={idx}
                       onClick={() => handleSendPrompt(promptText)}
-                      className="w-full rounded-2xl border border-zinc-100 bg-white p-5 text-left text-[13.5px] text-zinc-600 leading-relaxed shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:border-zinc-200 hover:shadow-xs hover:text-zinc-900 transition-all cursor-pointer group"
+                      className="w-full rounded-2xl border border-border bg-card p-5 text-left text-[13.5px] text-foreground leading-relaxed hover:border-muted-foreground/30 transition-all cursor-pointer group"
                     >
                       "{promptText}"
                     </button>
@@ -653,7 +655,7 @@ export default function AgentStudio() {
               [ FileText  Mic ]               [ GreenBotBadge   ArrowCircle ]
               "AI Employees can make mistakes. Review generated workflows before deploying."
           ───────────────────────────────────────────────────────────── */}
-          <div className="w-full shrink-0 px-4 pb-4 pt-2 bg-transparent relative z-20">
+          <div className={`${activeSession ? "block" : "hidden"} w-full shrink-0 px-4 pb-4 pt-2 bg-transparent relative z-20`}>
             <div className="max-w-[720px] mx-auto w-full">
               <div className="rounded-2xl border border-zinc-200 bg-white shadow-xs p-3.5 focus-within:border-zinc-400 focus-within:shadow-sm transition-all">
                 <textarea
@@ -720,24 +722,6 @@ export default function AgentStudio() {
         </div>
       </div>
 
-      {/* ─────────────────────────────────────────────────────────────
-          4. FLOATING UTILITIES (Dark Mode button & right edge panel handle)
-      ───────────────────────────────────────────────────────────── */}
-      <button
-        type="button"
-        onClick={() => setIsDarkMode(!isDarkMode)}
-        className="fixed bottom-6 right-6 w-9 h-9 rounded-full bg-white border border-zinc-200 shadow-sm flex items-center justify-center text-zinc-600 hover:bg-zinc-50 transition-all cursor-pointer z-30"
-        title="Toggle dark mode"
-      >
-        <Moon className="w-4 h-4" />
-      </button>
-
-      <div
-        className="fixed right-0 bottom-24 bg-white border border-r-0 border-zinc-200 px-1 py-2 rounded-l-md text-zinc-400 hover:text-zinc-600 cursor-pointer shadow-2xs z-30 text-[10px] select-none font-mono flex items-center justify-center"
-        title="Panel controls"
-      >
-        &gt;.&lt;
-      </div>
     </div>
   );
 }

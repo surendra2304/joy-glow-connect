@@ -66,7 +66,7 @@
     --muted-foreground: #64748b;
     --border: #e5e7eb;
     --sidebar: #ffffff;
-    --workspace-wash: #efedff;
+    --workspace-wash: #eeebff;
   }
   html, body, #root {
     height: 100%;
@@ -97,16 +97,18 @@
   background:
     linear-gradient(
       to bottom,
-      var(--background) 0,
-      var(--background) min(46rem, 62vh),
-      color-mix(in oklab, var(--workspace-wash) 82%, var(--background)) 100%
+      #ffffff 0,
+      #ffffff min(35rem, 55vh),
+      color-mix(in oklab, var(--workspace-wash) 84%, #ffffff) 100%
     );
 }
 
 @utility marketplace-hero {
   background:
-    radial-gradient(circle at 82% 22%, color-mix(in oklab, var(--workspace-wash) 28%, transparent), transparent 30%),
-    linear-gradient(118deg, oklch(0.15 0.02 165), oklch(0.16 0.025 285) 58%, oklch(0.21 0.055 305));
+    radial-gradient(circle at 14% 104%, oklch(0.78 0.17 135 / .8), transparent 31%),
+    radial-gradient(circle at 92% 15%, oklch(0.75 0.03 230 / .54), transparent 44%),
+    radial-gradient(circle at 37% 88%, oklch(0.77 0.10 74 / .46), transparent 34%),
+    linear-gradient(112deg, oklch(0.35 0.03 310), oklch(0.12 0.05 277) 52%, oklch(0.38 0.035 230));
 }
 
 @utility marketplace-hero-grid {
@@ -121,10 +123,19 @@
   background:
     linear-gradient(
       to bottom,
-      var(--background) 0,
-      color-mix(in oklab, var(--workspace-wash) 34%, var(--background)) 72%,
-      color-mix(in oklab, var(--workspace-wash) 76%, var(--background)) 100%
+      color-mix(in oklab, var(--workspace-wash) 72%, #ffffff) 0,
+      #ffffff 25%,
+      #ffffff 72%,
+      color-mix(in oklab, var(--workspace-wash) 68%, #ffffff) 100%
     );
+}
+
+@utility animate-fadein {
+  animation: fadeIn .24s ease-out both;
+}
+
+@utility animate-scalein {
+  animation: scaleIn .2s ease-out both;
 }
 
 @layer components {

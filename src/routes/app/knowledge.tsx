@@ -8,6 +8,8 @@ export const Route = createFileRoute("/app/knowledge")({
       { name: "description", content: "Knowledge base in your KaliGan AI workspace." },
       { property: "og:title", content: "Knowledge base — KaliGan AI" },
       { property: "og:description", content: "Knowledge base in your KaliGan AI workspace." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Knowledge,

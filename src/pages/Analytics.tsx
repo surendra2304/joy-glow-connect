@@ -146,7 +146,7 @@ export default function Analytics() {
   };
 
   return (
-    <div className="space-y-8 pb-16 max-w-7xl mx-auto">
+    <div className="space-y-6 pb-16 max-w-none mx-auto">
       {/* ─────────────────────────────────────────────────────────────
           1. HEADER & CONTROLS
       ───────────────────────────────────────────────────────────── */}
