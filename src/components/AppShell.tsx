@@ -51,7 +51,7 @@ export default function AppShell() {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[180px_minmax(0,1fr)] min-h-screen bg-background text-foreground">
+    <div className="grid grid-cols-1 md:grid-cols-[228px_minmax(0,1fr)] min-h-screen bg-background text-foreground">
       {/* Create Agent Modal */}
       <CreateAgentModal isOpen={showCreateModal} onClose={() => setShowCreateModal(false)} />
 
