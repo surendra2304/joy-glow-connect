@@ -7,29 +7,27 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CreateAgentModal } from "./CreateAgentModal";
 
 function Item({ to, icon, label, badge }: { to: string; icon: ReactNode; label: string; badge?: string }) {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isActive = to === "/app" ? pathname === "/app" || pathname === "/app/" : pathname === to || pathname.startsWith(`${to}/`);
   return (
-    <NavLink to={to} end
-      className={({ isActive }) => `flex items-center gap-2.5 px-3 py-2 rounded-xl text-[13.5px] font-medium transition-all cursor-pointer ${
-        isActive 
-          ? "bg-[#09090B] text-white font-semibold shadow-xs" 
+    <Link to={to}
+      className={`flex items-center gap-2.5 px-3 py-2 rounded-xl text-[13.5px] font-medium transition-all cursor-pointer ${
+        isActive
+          ? "bg-[#09090B] text-white font-semibold shadow-xs"
           : "text-[#64748B] hover:text-[#09090B] hover:bg-[#EEF0F2]"
       }`}>
-      {({ isActive }) => (
-        <>
-          <span className={`shrink-0 w-4 h-4 grid place-items-center ${isActive ? "text-white" : "text-[#64748B]"}`}>
-            {icon}
-          </span>
-          <span className="flex-1 truncate">{label}</span>
-          {badge && (
-            <span className={`text-[10.5px] font-bold px-2 py-0.5 rounded-full shrink-0 ml-1 transition-colors ${
-              isActive ? "bg-white/20 text-white" : "bg-[#E5E7EB] text-[#09090B]"
-            }`}>
-              {badge}
-            </span>
-          )}
-        </>
+      <span className={`shrink-0 w-4 h-4 grid place-items-center ${isActive ? "text-white" : "text-[#64748B]"}`}>
+        {icon}
+      </span>
+      <span className="flex-1 truncate">{label}</span>
+      {badge && (
+        <span className={`text-[10.5px] font-bold px-2 py-0.5 rounded-full shrink-0 ml-1 transition-colors ${
+          isActive ? "bg-white/20 text-white" : "bg-[#E5E7EB] text-[#09090B]"
+        }`}>
+          {badge}
+        </span>
       )}
-    </NavLink>
+    </Link>
   );
 }
 
