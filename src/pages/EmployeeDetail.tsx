@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
-import { Link, useParams, useSearchParams } from "@tanstack/react-router";
+import { Link, useNavigate, useParams, useSearch } from "@tanstack/react-router";
 import { GSpinner } from "../components/grok";
 import { useEmployeeDetail } from "../hooks/useEmployeeDetail";
 import { MOCK_AGENTS } from "../data/mockAgents";
@@ -26,12 +26,13 @@ import { ArrowLeft, Bot, Save, Play, Pause } from "lucide-react";
 
 export default function EmployeeDetail() {
   const { id } = useParams({ strict: false });
-  const [searchParams, setSearchParams] = useSearchParams();
-  const initialTab = searchParams.get("tab") || "overview";
+  const searchParams = useSearch({ strict: false }) as { tab?: string };
+  const navigate = useNavigate();
+  const initialTab = searchParams.tab || "overview";
   const [tab, setTab] = useState(initialTab);
 
   useEffect(() => {
-    const t = searchParams.get("tab") || "overview";
+    const t = searchParams.tab || "overview";
     setTab(t);
   }, [searchParams]);
 
@@ -61,7 +62,7 @@ export default function EmployeeDetail() {
 
   const handleTabChange = (t: string) => {
     setTab(t);
-    setSearchParams({ tab: t });
+    navigate({ to: ".", search: { tab: t }, replace: true });
   };
 
   if (loading && !agent) return <GSpinner />;

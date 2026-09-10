@@ -1,5 +1,5 @@
 import { useState, useMemo, useRef, useEffect } from "react";
-import { useParams, useNavigate, Link, useSearchParams } from "@tanstack/react-router";
+import { useParams, useNavigate, Link, useSearch } from "@tanstack/react-router";
 import {
   getTemplateById,
   getCanonicalUseCasesForTemplate,
@@ -25,7 +25,7 @@ import {
 
 export default function TemplateFlow() {
   const { templateId } = useParams({ strict: false });
-  const [searchParams] = useSearchParams();
+  const searchParams = useSearch({ strict: false }) as { mode?: string };
   const navigate = useNavigate();
   const demoSectionRef = useRef<HTMLDivElement>(null);
 
@@ -43,7 +43,7 @@ export default function TemplateFlow() {
 
   // Auto-scroll to demo if ?mode=demo is present
   useEffect(() => {
-    if (searchParams.get("mode") === "demo") {
+    if (searchParams.mode === "demo") {
       setTimeout(() => {
         demoSectionRef.current?.scrollIntoView({ behavior: "smooth" });
       }, 150);
