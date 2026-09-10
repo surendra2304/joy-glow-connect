@@ -42,6 +42,7 @@ export const DEFAULT_WORKSPACE: Workspace = {
   plan: "pro",
 };
 
+// @ts-ignore unused
 const getStoredUser = (): User | null => {
   try {
     const u = localStorage.getItem('authUser');
