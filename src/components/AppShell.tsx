@@ -1,4 +1,4 @@
-import { Link, NavLink, Outlet, useLocation } from "@tanstack/react-router";
+import { Link, Outlet, useLocation, useRouterState } from "@tanstack/react-router";
 import { useAuth } from "../lib/auth";
 import * as I from "./icons";
 import type { ReactNode } from "react";
