@@ -3,9 +3,10 @@ import * as I from "../components/icons";
 import connectorsData from "../data/connectors.json";
 import { api } from "../lib/api";
 import { Search, X } from "lucide-react";
+import { renderConnectorIcon } from "../components/renderConnectorIcon";
 
 type ConnectorStatus = "not-connected" | "connected" | "needs-reauth";
-type ConnectorCategory = "All" | "Communication" | "CRM" | "Productivity";
+type ConnectorCategory = "All" | "Communication" | "CRM" | "Productivity" | "Calendar" | "Support" | "Project Management";
 
 type ConnectorRecord = {
   id: string;
@@ -17,7 +18,7 @@ type ConnectorRecord = {
   logoUrl: string;
 };
 
-const categoryTabs: string[] = ["All", "CRM", "Communication", "Support", "Productivity", "Billing", "Project Management"];
+const categoryTabs: string[] = ["All", "CRM", "Communication", "Support", "Productivity", "Calendar", "Telephony", "Project Management"];
 
 const defaultConnectors: ConnectorRecord[] = connectorsData as unknown as ConnectorRecord[];
 
@@ -96,15 +97,15 @@ export default function Connectors() {
       {/* ─── Page Title (Exact kaliganai.com Standard) ──────────────────── */}
       <div>
         <h1 className="text-xl font-bold text-[#09090B] tracking-tight">
-          Integration Directory.
+          Integration Directory
         </h1>
         <p className="text-[11.5px] text-[#64748B] mt-1 font-normal max-w-2xl">
-          Connect your AI employees to customer, project, billing, and communication tools.
+          Search, filter, and connect the systems your AI employees need to do real work.
         </p>
       </div>
 
       {/* ─── Seamless Container (Exact kaliganai.com/features/integrations) ─ */}
-      <div className="rounded-2xl border border-[#E5E7EB] bg-white p-5 space-y-4 shadow-xs">
+      <div className="rounded-[28px] border border-border bg-card p-6 space-y-5 shadow-[0_18px_45px_-38px_rgba(15,23,42,.5)]">
         {/* Full-Width Search Input */}
         <div className="relative">
           <input
@@ -149,7 +150,7 @@ export default function Connectors() {
           })}
         </div>
 
-        {/* Clean, Neat Rounded-3XL Cards Grid (Exact kaliganai.com Standard) */}
+        {/* Integration cards */}
         {filteredConnectors.length === 0 ? (
           <div className="rounded-2xl border border-[#E5E7EB] p-12 text-center my-4 space-y-3">
             <div className="w-11 h-11 rounded-xl bg-[#F8F9FA] border border-[#E5E7EB] grid place-items-center mx-auto text-[#64748B]">
@@ -161,20 +162,20 @@ export default function Connectors() {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 pt-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1">
             {filteredConnectors.map((connector) => {
               const isConnected = connector.status === "connected";
 
               return (
                 <div
                   key={connector.id}
-                  className="group rounded-2xl bg-white border border-[#E5E7EB] p-4 hover:border-[#CBD5E1] hover:shadow-[0_10px_30px_-6px_rgba(0,0,0,0.05)] hover:-translate-y-0.5 transition-all flex flex-col justify-between min-h-[180px] shadow-[0_1px_3px_rgba(0,0,0,0.02)]"
+                  className="group rounded-2xl bg-card border border-border p-5 hover:border-muted-foreground/30 hover:shadow-sm transition-all flex flex-col justify-between min-h-[196px]"
                 >
                   <div>
                     {/* Brand Logo & Connection Status */}
                     <div className="flex items-center justify-between gap-3">
-                      <div className="w-11 h-11 rounded-2xl bg-white border border-[#E5E7EB] overflow-hidden grid place-items-center p-2 shadow-2xs group-hover:border-[#94A3B8] transition-colors">
-                        <img src={connector.logoUrl} alt={`${connector.name} logo`} className="w-full h-full object-contain" />
+                      <div className="w-9 h-9 rounded-full bg-card border border-border overflow-hidden grid place-items-center p-2 group-hover:border-muted-foreground transition-colors">
+                        {renderConnectorIcon(connector.id, undefined, 5)}
                       </div>
 
                       {isConnected && (
@@ -186,7 +187,7 @@ export default function Connectors() {
                     </div>
 
                     {/* Name & Category Label */}
-                    <div className="mt-4">
+                    <div className="mt-5">
                       <h3 className="font-bold text-[16px] text-[#09090B] tracking-tight leading-tight">
                         {connector.name}
                       </h3>
@@ -196,7 +197,7 @@ export default function Connectors() {
                     </div>
 
                     {/* Mandate Description */}
-                    <p className="text-[12.5px] text-[#64748B] leading-relaxed mt-2.5 line-clamp-2">
+                    <p className="text-[12.5px] text-[#64748B] leading-relaxed mt-3 line-clamp-3">
                       {connector.description}
                     </p>
                   </div>

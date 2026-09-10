@@ -1,4 +1,49 @@
-﻿[
+[
+  {
+    "id": "salesforce",
+    "name": "Salesforce",
+    "description": "Connect your AI employees to customer and lead information in Salesforce.",
+    "status": "not-connected",
+    "iconName": "S",
+    "category": "CRM",
+    "logoUrl": ""
+  },
+  {
+    "id": "hubspot",
+    "name": "HubSpot",
+    "description": "Create and update leads, contacts, deals, and conversation notes.",
+    "status": "not-connected",
+    "iconName": "H",
+    "category": "CRM",
+    "logoUrl": ""
+  },
+  {
+    "id": "slack",
+    "name": "Slack",
+    "description": "Notify teams, route updates, and keep work visible in channels.",
+    "status": "not-connected",
+    "iconName": "S",
+    "category": "Communication",
+    "logoUrl": ""
+  },
+  {
+    "id": "gmail",
+    "name": "Gmail",
+    "description": "Read, draft, and follow up on important business conversations.",
+    "status": "not-connected",
+    "iconName": "G",
+    "category": "Communication",
+    "logoUrl": ""
+  },
+  {
+    "id": "calendar",
+    "name": "Google Calendar",
+    "description": "Find availability and schedule meetings from qualified conversations.",
+    "status": "not-connected",
+    "iconName": "C",
+    "category": "Calendar",
+    "logoUrl": ""
+  },
   {
     "id": "notion",
     "name": "Notion",
@@ -6,60 +51,24 @@
     "status": "not-connected",
     "iconName": "N",
     "category": "Productivity",
-    "logoUrl": "https://cdn.worldvectorlogo.com/logos/notion-2.svg"
+    "logoUrl": ""
   },
   {
-    "id": "slack",
-    "name": "Slack",
-    "description": "Send messages, read channels",
-    "status": "not-connected",
-    "iconName": "S",
-    "category": "Communication",
-    "logoUrl": "https://cdn.worldvectorlogo.com/logos/slack-new-logo.svg"
-  },
-  {
-    "id": "drive",
-    "name": "Google Drive",
-    "description": "Find and read files",
-    "status": "not-connected",
-    "iconName": "G",
-    "category": "Productivity",
-    "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg"
-  },
-  {
-    "id": "gmail",
-    "name": "Gmail",
-    "description": "Read and send email",
-    "status": "not-connected",
-    "iconName": "M",
-    "category": "Communication",
-    "logoUrl": "https://cdn.worldvectorlogo.com/logos/gmail-icon.svg"
-  },
-  {
-    "id": "hubspot",
-    "name": "HubSpot",
-    "description": "Update contacts and deals",
-    "status": "not-connected",
-    "iconName": "H",
-    "category": "CRM",
-    "logoUrl": "https://cdn.worldvectorlogo.com/logos/hubspot.svg"
-  },
-  {
-    "id": "stripe",
-    "name": "Stripe",
-    "description": "Check payments and charges",
-    "status": "not-connected",
-    "iconName": "$",
-    "category": "Productivity",
-    "logoUrl": "https://cdn.worldvectorlogo.com/logos/stripe-4.svg"
-  },
-  {
-    "id": "zoho",
-    "name": "Zoho CRM",
-    "description": "Create and manage leads",
+    "id": "zendesk",
+    "name": "Zendesk",
+    "description": "Create tickets, check cases, and add support summaries.",
     "status": "not-connected",
     "iconName": "Z",
-    "category": "CRM",
-    "logoUrl": "https://cdn.worldvectorlogo.com/logos/zoho-1.svg"
+    "category": "Support",
+    "logoUrl": ""
+  },
+  {
+    "id": "jira",
+    "name": "Jira",
+    "description": "Create tasks and update engineering or operations workflows.",
+    "status": "not-connected",
+    "iconName": "J",
+    "category": "Project Management",
+    "logoUrl": ""
   }
 ]
