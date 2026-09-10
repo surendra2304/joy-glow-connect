@@ -74,9 +74,24 @@ const persistAuth = (user: User | null, workspace: Workspace | null) => {
   } catch (e) {}
 };
 
+// No login screen: the app always runs with this default workspace user.
+const DEFAULT_USER: User = {
+  id: "usr_demo",
+  email: "demo@kaligan.ai",
+  name: "KaliGanAI",
+  role: "admin",
+};
+
+const DEFAULT_WORKSPACE: Workspace = {
+  id: "ws_demo",
+  name: "KaliGanAI",
+  publicKey: "pk_live_demo",
+  plan: "Enterprise Scale",
+};
+
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(getStoredUser);
-  const [workspace, setWorkspace] = useState<Workspace | null>(getStoredWorkspace);
+  const [user, setUser] = useState<User | null>(DEFAULT_USER);
+  const [workspace, setWorkspace] = useState<Workspace | null>(DEFAULT_WORKSPACE);
   const [loading, setLoading] = useState<boolean>(false);
 
   const refreshSession = async () => {
