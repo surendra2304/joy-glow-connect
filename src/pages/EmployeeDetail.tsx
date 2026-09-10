@@ -25,7 +25,7 @@ import { Tabs, TabsList, TabsTrigger } from "../components/ui/tabs";
 import { ArrowLeft, Bot, Save, Play, Pause } from "lucide-react";
 
 export default function EmployeeDetail() {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams({ strict: false });
   const [searchParams, setSearchParams] = useSearchParams();
   const initialTab = searchParams.get("tab") || "overview";
   const [tab, setTab] = useState(initialTab);

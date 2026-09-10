@@ -24,7 +24,7 @@ import {
 } from "lucide-react";
 
 export default function TemplateFlow() {
-  const { templateId } = useParams<{ templateId: string }>();
+  const { templateId } = useParams({ strict: false });
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const demoSectionRef = useRef<HTMLDivElement>(null);

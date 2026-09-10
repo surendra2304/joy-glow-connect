@@ -297,7 +297,7 @@ export function Leads() {
 }
 
 export function LeadDetail() {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams({ strict: false });
   const [lead, setLead] = useState<Lead | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

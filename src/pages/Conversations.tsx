@@ -51,7 +51,7 @@ const tabListCache: Record<string, ConvoItem[]> = {};
 const detailCache: Record<string, ConvoDetail> = {};
 
 export default function Conversations() {
-  const { id } = useParams<{ id?: string }>();
+  const { id } = useParams({ strict: false });
   const navigate = useNavigate();
 
   const tabs = ["All", "Captured", "Hot", "Unread"];
