@@ -1,7 +1,7 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/app/calls")({
   beforeLoad: () => {
-    throw redirect({ to: "/app" });
+    throw redirect({ to: "/app/agents" });
   },
 });
