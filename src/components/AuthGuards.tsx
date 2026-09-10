@@ -8,7 +8,8 @@ export function PrivateRoute({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
-  if (!mounted || loading) {
+  if (!mounted) return null;
+  if (loading) {
     return <Loading fullScreen label="Verifying session" subtitle="Please wait a moment" />;
   }
   if (!user) {
@@ -22,7 +23,8 @@ export function PublicRoute({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
-  if (!mounted || loading) {
+  if (!mounted) return null;
+  if (loading) {
     return <Loading fullScreen label="Loading KaliGan AI" subtitle="Please wait a moment" />;
   }
   if (user) {
