@@ -248,48 +248,24 @@ export default function Templates() {
 
       {/* ─── 2. FEATURED SPOTLIGHT HERO BANNER ────────────────────────────── */}
       {!searchQuery && selectedCategory === "All" && selectedChannel === "All" && (
-          <div className="marketplace-hero relative overflow-hidden rounded-[20px] text-background p-8 shadow-md border border-foreground/20 min-h-[290px]">
-          {/* Subtle decorative background blur */}
-          <div className="absolute inset-0 marketplace-hero-grid pointer-events-none" />
-
-            <div className="relative z-10 flex h-full flex-col lg:flex-row lg:items-center justify-between gap-8">
-            <div className="space-y-4 max-w-xl py-1">
-              {/* Spotlight Badges */}
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-amber-300 bg-amber-400/10 border border-amber-400/20 px-2.5 py-0.5 rounded-full">
-                  <Sparkles className="w-3 h-3 text-amber-400" />
-                  Build a smarter workforce
-                </span>
-              </div>
-
-              {/* Title & Role */}
-              <div>
-                <h2 className="text-3xl sm:text-[40px] leading-none font-bold tracking-tight text-background">
-                  AI Employee Marketplace
-                </h2>
-                <p className="text-[15px] font-medium text-background/80 mt-2">
-                  Discover AI Employees Built for Real Work
-                </p>
-              </div>
-
-              {/* Outcome Proposition */}
-              <p className="text-[14px] text-background/75 leading-relaxed max-w-lg">
-                Explore, compare, and deploy AI Employees for sales, customer support, operations, and everyday business workflows.
-              </p>
-
-              {/* Key Capabilities */}
-              <div className="flex flex-wrap gap-2 pt-1">
-                <Button onClick={() => document.getElementById("marketplace-filters")?.scrollIntoView({ behavior: "smooth" })} className="rounded-full border border-background/45 bg-background/10 text-background hover:bg-background/20">Browse AI Employees <span aria-hidden="true">→</span></Button>
-                <Button onClick={() => navigate({ to: "/app/studio" })} className="rounded-full border border-background/45 bg-background/10 text-background hover:bg-background/20"><Play className="h-3.5 w-3.5" /> How it works</Button>
-              </div>
-            </div>
-
-            {/* Spotlight CTA & Switcher */}
-            <div className="relative hidden h-[220px] w-[360px] shrink-0 lg:block" aria-hidden="true">
-              <img src={heroCube.url} alt="" className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 object-contain" />
-              {[['Sales','top-1 left-3'],['Customer Support','top-7 right-0'],['Operations','top-[94px] left-0'],['Voice','top-[112px] right-2'],['Productivity','bottom-0 left-28']].map(([label,pos]) => <span key={label} className={`absolute ${pos} rounded-full border border-background/50 bg-background/5 px-5 py-2 text-xs text-background/90`}>{label}</span>)}
-            </div>
-          </div>
+        <div className="relative overflow-hidden rounded-[20px]">
+          <img
+            src={marketplaceHero.url}
+            alt="AI Employee Marketplace — discover AI employees built for real work"
+            className="block w-full h-auto"
+          />
+          <button
+            type="button"
+            aria-label="Browse AI Employees"
+            onClick={() => document.getElementById("marketplace-filters")?.scrollIntoView({ behavior: "smooth" })}
+            className="absolute left-[2.4%] top-[76%] h-[16%] w-[15%] cursor-pointer rounded-full"
+          />
+          <button
+            type="button"
+            aria-label="How it works"
+            onClick={() => navigate({ to: "/app/studio" })}
+            className="absolute left-[18.5%] top-[76%] h-[16%] w-[10.5%] cursor-pointer rounded-full"
+          />
         </div>
       )}
 
