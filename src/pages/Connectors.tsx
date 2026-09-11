@@ -4,6 +4,7 @@ import connectorsData from "../data/connectors.json";
 import { api } from "../lib/api";
 import { Search, X } from "lucide-react";
 import { renderConnectorIcon } from "../components/renderConnectorIcon";
+import { CubeIcon } from "../components/CubeIcon";
 
 type ConnectorStatus = "not-connected" | "connected" | "needs-reauth";
 type ConnectorCategory = "All" | "Communication" | "CRM" | "Productivity" | "Calendar" | "Support" | "Project Management";
@@ -210,7 +211,7 @@ export default function Connectors() {
                       className="inline-flex items-center gap-1 text-[13px] font-semibold text-[#09090B] hover:text-black group-hover:gap-1.5 transition-all cursor-pointer select-none"
                     >
                       <span>{isConnected ? "Manage" : "Connect"}</span>
-                      <span className="transition-transform group-hover:translate-x-0.5">→</span>
+                      <CubeIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
                     </button>
                   </div>
                 </div>
