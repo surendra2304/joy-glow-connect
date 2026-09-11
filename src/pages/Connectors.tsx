@@ -4,6 +4,7 @@ import connectorsData from "../data/connectors.json";
 import { api } from "../lib/api";
 import { Search, X } from "lucide-react";
 import { renderConnectorIcon } from "../components/renderConnectorIcon";
+import { CubeIcon } from "../components/CubeIcon";
 
 type ConnectorStatus = "not-connected" | "connected" | "needs-reauth";
 type ConnectorCategory = "All" | "Communication" | "CRM" | "Productivity" | "Calendar" | "Support" | "Project Management";
@@ -174,8 +175,8 @@ export default function Connectors() {
                   <div>
                     {/* Brand Logo & Connection Status */}
                     <div className="flex items-center justify-between gap-3">
-                      <div className="w-9 h-9 rounded-full bg-card border border-border overflow-hidden grid place-items-center p-2 group-hover:border-muted-foreground transition-colors">
-                        {renderConnectorIcon(connector.id, undefined, 5)}
+                      <div className="w-10 h-10 rounded-xl overflow-hidden grid place-items-center">
+                        {renderConnectorIcon(connector.id, undefined, 10)}
                       </div>
 
                       {isConnected && (
@@ -210,7 +211,7 @@ export default function Connectors() {
                       className="inline-flex items-center gap-1 text-[13px] font-semibold text-[#09090B] hover:text-black group-hover:gap-1.5 transition-all cursor-pointer select-none"
                     >
                       <span>{isConnected ? "Manage" : "Connect"}</span>
-                      <span className="transition-transform group-hover:translate-x-0.5">→</span>
+                      <CubeIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
                     </button>
                   </div>
                 </div>
