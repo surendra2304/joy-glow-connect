@@ -23,9 +23,17 @@ const LOGOS: Record<string, string> = {
  * Renders a connector/integration icon by id, with an optional fallback image URL.
  */
 export function renderConnectorIcon(id: string, fallbackUrl?: string, size = 5) {
+  const px = size * 4;
   const url = LOGOS[id] ?? fallbackUrl;
   if (url) {
-    return <img src={url} alt={id} className={`w-${size} h-${size} object-contain shrink-0`} />;
+    return (
+      <img
+        src={url}
+        alt={id}
+        style={{ width: px, height: px }}
+        className="rounded-full object-contain shrink-0 bg-transparent"
+      />
+    );
   }
-  return <I.Plug width={size * 4} height={size * 4} className="text-[var(--g-muted-foreground)] shrink-0" />;
+  return <I.Plug width={px} height={px} className="text-[var(--g-muted-foreground)] shrink-0" />;
 }
