@@ -1,5 +1,5 @@
 import { CubeIcon } from "@/components/CubeIcon";
-import marketplaceHero from "../assets/figma/marketplace-hero.png.asset.json";
+import marketplaceHero from "../assets/figma/marketplace-hero-v2.png.asset.json";
 import { useState, useMemo } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import {
