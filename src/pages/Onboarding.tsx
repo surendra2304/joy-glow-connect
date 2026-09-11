@@ -280,7 +280,7 @@ export function Onboarding() {
                 Back
               </button>
               <button className="btn btn-primary" onClick={() => setStep(4)}>
-                Looks Good →
+                Looks Good
               </button>
             </div>
           </div>

@@ -1,3 +1,4 @@
+import { CubeIcon } from "@/components/CubeIcon";
 import { useState, useEffect, useCallback } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { PageHead, MetricCard, ScoreBadge, StateBlock, Loading } from "../components/grok";
@@ -368,7 +369,7 @@ export default function Dashboard() {
                   {metrics.needsYou.length} hot
                 </span>
                 <Link to="/app/leads" className="ml-auto text-[13px] font-semibold text-[var(--g-foreground)] hover:underline flex items-center gap-1">
-                  View all leads <I.ArrowRight width={12} height={12} />
+                  View all leads <CubeIcon className="w-3 h-3" />
                 </Link>
               </div>
               {metrics.needsYou.length === 0 ? (
@@ -403,7 +404,7 @@ export default function Dashboard() {
               <div className="flex items-center gap-2.5 px-5 pt-[17px] pb-3.5">
                 <h2 className="font-display text-[16.5px] font-bold">Recent activity</h2>
                 <Link to="/app/conversations" className="ml-auto text-[13px] font-semibold text-[var(--g-foreground)] hover:underline flex items-center gap-1">
-                  Conversations <I.ArrowRight width={12} height={12} />
+                  Conversations <CubeIcon className="w-3 h-3" />
                 </Link>
               </div>
               {metrics.recentActivity.length === 0 ? (

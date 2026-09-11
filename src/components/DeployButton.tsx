@@ -1,3 +1,4 @@
+import { CubeIcon } from "@/components/CubeIcon";
 import * as I from "./icons";
 
 interface DeployButtonProps {
@@ -49,7 +50,7 @@ export function DeployButton({
         <>
           <I.Bot width={14} height={14} />
           <span>{label}</span>
-          <I.ArrowRight width={12} height={12} />
+          <CubeIcon className="w-3 h-3" />
         </>
       )}
     </button>

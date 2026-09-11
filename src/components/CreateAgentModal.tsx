@@ -1,3 +1,4 @@
+import { CubeIcon } from "@/components/CubeIcon";
 import { useNavigate } from "@tanstack/react-router";
 import * as I from "./icons";
 
@@ -142,7 +143,7 @@ export function CreateAgentModal({ isOpen, onClose }: CreateAgentModalProps) {
               {/* Bottom CTA */}
               <div className="mt-5 pt-3 border-t border-[#F1F5F9] flex items-center justify-between text-[12.5px] font-semibold text-[#09090B] group-hover:translate-x-0.5 transition-transform">
                 <span>{option.ctaText}</span>
-                <I.ArrowRight width={14} height={14} />
+                <CubeIcon className="w-3.5 h-3.5" />
               </div>
             </div>
           ))}
