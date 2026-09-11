@@ -258,13 +258,13 @@ export default function Templates() {
             type="button"
             aria-label="Browse AI Employees"
             onClick={() => document.getElementById("marketplace-filters")?.scrollIntoView({ behavior: "smooth" })}
-            className="absolute left-[2.4%] top-[76%] h-[16%] w-[15%] cursor-pointer rounded-full"
+            className="absolute left-[2.76%] top-[76.4%] h-[11.8%] w-[14.4%] cursor-pointer rounded-full"
           />
           <button
             type="button"
             aria-label="How it works"
             onClick={() => navigate({ to: "/app/studio" })}
-            className="absolute left-[18.5%] top-[76%] h-[16%] w-[10.5%] cursor-pointer rounded-full"
+            className="absolute left-[18.3%] top-[76.4%] h-[11.8%] w-[10.1%] cursor-pointer rounded-full"
           />
         </div>
       )}
