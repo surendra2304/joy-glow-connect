@@ -175,8 +175,8 @@ export default function Connectors() {
                   <div>
                     {/* Brand Logo & Connection Status */}
                     <div className="flex items-center justify-between gap-3">
-                      <div className="w-9 h-9 rounded-full bg-card border border-border overflow-hidden grid place-items-center p-2 group-hover:border-muted-foreground transition-colors">
-                        {renderConnectorIcon(connector.id, undefined, 5)}
+                      <div className="w-10 h-10 rounded-xl overflow-hidden grid place-items-center">
+                        {renderConnectorIcon(connector.id, undefined, 10)}
                       </div>
 
                       {isConnected && (
